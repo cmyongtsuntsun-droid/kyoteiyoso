@@ -1,6 +1,0 @@
-lightgbm>=4.0
-pandas>=2.0
-numpy>=1.26
-
-[dev]
-pytest>=8.0
