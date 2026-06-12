@@ -1,0 +1,214 @@
+/* 競艇予想AI 静的サイト スタイル */
+:root {
+  --bg: #0f1923;
+  --panel: #18242f;
+  --panel-light: #1f2e3b;
+  --text: #e8eef3;
+  --text-dim: #93a5b3;
+  --accent: #29b6f6;
+  --accent2: #ffca28;
+  --hit: #66bb6a;
+  --border: #2a3a48;
+  /* 艇番カラー (1:白 2:黒 3:赤 4:青 5:黄 6:緑) */
+  --boat1-bg: #f5f5f5; --boat1-fg: #222;
+  --boat2-bg: #212121; --boat2-fg: #fff;
+  --boat3-bg: #e53935; --boat3-fg: #fff;
+  --boat4-bg: #1e88e5; --boat4-fg: #fff;
+  --boat5-bg: #fdd835; --boat5-fg: #222;
+  --boat6-bg: #43a047; --boat6-fg: #fff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic UI", Meiryo, sans-serif;
+  line-height: 1.6;
+}
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+.site-header {
+  background: linear-gradient(135deg, #102a43 0%, #0f1923 100%);
+  border-bottom: 2px solid var(--accent);
+  padding: 28px 0 20px;
+}
+.site-header h1 { font-size: 1.7rem; }
+.tagline { color: var(--text-dim); font-size: 0.92rem; margin-top: 4px; }
+.meta-info { color: var(--text-dim); font-size: 0.82rem; margin-top: 8px; }
+
+.model-stats {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin: 18px 0 6px;
+}
+.stat-chip {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 14px; font-size: 0.85rem;
+}
+.stat-chip strong { color: var(--accent2); font-size: 1.05rem; margin-left: 6px; }
+
+.stadium-nav {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  padding-top: 14px; padding-bottom: 4px;
+}
+.stadium-btn {
+  background: var(--panel); color: var(--text);
+  border: 1px solid var(--border); border-radius: 18px;
+  padding: 5px 14px; font-size: 0.85rem; cursor: pointer;
+  transition: all .15s;
+}
+.stadium-btn:hover { border-color: var(--accent); }
+.stadium-btn.active { background: var(--accent); color: #06222e; font-weight: 700; }
+
+.status { color: var(--text-dim); padding: 24px 0; text-align: center; }
+.status.error { color: #ef5350; }
+
+.stadium-section { margin: 26px 0; }
+.stadium-section h2 {
+  font-size: 1.15rem; border-left: 4px solid var(--accent);
+  padding-left: 10px; margin-bottom: 12px;
+}
+
+.race-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(490px, 1fr)); gap: 14px; }
+@media (max-width: 560px) { .race-grid { grid-template-columns: 1fr; } }
+
+.race-card {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px; overflow: hidden;
+}
+.race-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 8px; gap: 8px;
+}
+.race-no { font-weight: 700; color: var(--accent); font-size: 1.05rem; white-space: nowrap; }
+.race-title { color: var(--text-dim); font-size: 0.78rem; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.race-close { color: var(--text-dim); font-size: 0.78rem; white-space: nowrap; }
+.race-cond { color: var(--text-dim); font-size: 0.75rem; margin-bottom: 8px; }
+
+table.boats { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+table.boats th {
+  color: var(--text-dim); font-weight: 400; text-align: left;
+  border-bottom: 1px solid var(--border); padding: 3px 6px; font-size: 0.72rem;
+}
+table.boats td { padding: 4px 6px; border-bottom: 1px solid rgba(42,58,72,.5); }
+tr.rank-1 { background: rgba(255, 202, 40, 0.10); }
+tr.rank-2 { background: rgba(41, 182, 246, 0.07); }
+tr.rank-3 { background: rgba(41, 182, 246, 0.035); }
+
+.boat-badge {
+  display: inline-block; width: 22px; height: 22px; line-height: 22px;
+  text-align: center; border-radius: 4px; font-weight: 700; font-size: 0.8rem;
+}
+.boat-1 { background: var(--boat1-bg); color: var(--boat1-fg); }
+.boat-2 { background: var(--boat2-bg); color: var(--boat2-fg); border: 1px solid #555; }
+.boat-3 { background: var(--boat3-bg); color: var(--boat3-fg); }
+.boat-4 { background: var(--boat4-bg); color: var(--boat4-fg); }
+.boat-5 { background: var(--boat5-bg); color: var(--boat5-fg); }
+.boat-6 { background: var(--boat6-bg); color: var(--boat6-fg); }
+
+.rank-cell { font-weight: 700; }
+.rank-cell.r1 { color: var(--accent2); }
+.rank-cell.r2 { color: var(--accent); }
+
+.prob-bar-wrap {
+  background: var(--panel-light); border-radius: 4px;
+  height: 14px; min-width: 70px; position: relative; overflow: hidden;
+}
+.prob-bar {
+  background: linear-gradient(90deg, var(--accent), #4fc3f7);
+  height: 100%; border-radius: 4px;
+}
+.prob-label { font-variant-numeric: tabular-nums; }
+
+.trifecta {
+  margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+}
+.trifecta-label { color: var(--text-dim); font-size: 0.75rem; }
+.combo-chip {
+  background: var(--panel-light); border: 1px solid var(--border);
+  border-radius: 6px; padding: 2px 9px; font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+.combo-chip strong { color: var(--accent2); }
+.combo-chip span { color: var(--text-dim); font-size: 0.72rem; margin-left: 5px; }
+
+.site-footer {
+  border-top: 1px solid var(--border); margin-top: 48px;
+  padding: 22px 0 30px; color: var(--text-dim); font-size: 0.8rem;
+}
+.site-footer a { color: var(--accent); }
+.disclaimer { margin-top: 8px; color: #b58900; }
+
+/* ===== ページナビゲーション ===== */
+.page-title { color: var(--accent); font-size: 1.1rem; margin-left: 8px; }
+.page-nav { margin-top: 10px; display: flex; gap: 14px; }
+.page-nav a {
+  color: var(--text-dim); text-decoration: none; font-size: 0.88rem;
+  padding: 3px 2px; border-bottom: 2px solid transparent;
+}
+.page-nav a:hover { color: var(--text); }
+.page-nav a.current { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ===== 選手分析ページ ===== */
+.racer-controls {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  margin: 18px 0 10px;
+}
+#search-box {
+  background: var(--panel); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 7px 12px; font-size: 0.9rem; width: 220px;
+}
+#search-box:focus { outline: none; border-color: var(--accent); }
+.class-filter { display: flex; gap: 6px; }
+#sort-select {
+  background: var(--panel); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 10px; font-size: 0.85rem;
+}
+.min-races-label { color: var(--text-dim); font-size: 0.82rem; }
+
+.list-note { color: var(--text-dim); font-size: 0.78rem; margin: 6px 0; }
+.racer-table { background: var(--panel); border-radius: 10px; }
+.racer-row { cursor: pointer; transition: background .1s; }
+.racer-row:hover { background: var(--panel-light); }
+.racer-name-cell { font-weight: 600; }
+td.num { font-variant-numeric: tabular-nums; }
+td.strong { color: var(--accent2); font-weight: 700; }
+td.dim, .dim { color: var(--text-dim); }
+
+.class-badge {
+  display: inline-block; border-radius: 4px; padding: 1px 7px;
+  font-size: 0.72rem; font-weight: 700;
+}
+.class-A1 { background: #ffca28; color: #3e2c00; }
+.class-A2 { background: #4fc3f7; color: #04293a; }
+.class-B1 { background: #2a3a48; color: #c9d7e2; }
+.class-B2 { background: #1d2934; color: #8aa0b0; border: 1px solid var(--border); }
+
+.detail-card { margin: 18px 0; border-color: var(--accent); }
+.detail-head { display: flex; justify-content: space-between; align-items: center; }
+.detail-head h2 { font-size: 1.25rem; }
+.close-btn {
+  background: var(--panel-light); color: var(--text-dim);
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 4px 12px; cursor: pointer; font-size: 0.8rem;
+}
+.close-btn:hover { color: var(--text); border-color: var(--accent); }
+.detail-chips { margin: 12px 0 4px; }
+.detail-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px; margin-top: 14px;
+}
+.detail-grid h3 {
+  font-size: 0.92rem; color: var(--accent);
+  margin-bottom: 8px; border-left: 3px solid var(--accent); padding-left: 8px;
+}
+.bar-cell { min-width: 70px; }
+td.place-1 { color: var(--accent2); font-weight: 700; }
+td.place-3 { color: var(--hit); }
+
+/* レースカード内の選手名リンク */
+.racer-link { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--text-dim); }
+.racer-link:hover { color: var(--accent); border-bottom-color: var(--accent); }

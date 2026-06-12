@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>選手分析 | 競艇予想AI</title>
+<meta name="description" content="競艇選手の個別分析。直近成績・コース別成績・場別成績・スタートタイミングを集計表示。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <h1>🚤 競艇予想AI <span class="page-title">選手分析</span></h1>
+    <p class="tagline">直近データに基づく選手個別の成績分析</p>
+    <nav class="page-nav">
+      <a href="index.html">本日の予想</a>
+      <a href="racers.html" class="current">選手分析</a>
+    </nav>
+    <div id="meta-info" class="meta-info"></div>
+  </div>
+</header>
+
+<main class="container">
+  <div id="racer-detail"></div>
+
+  <div class="racer-controls">
+    <input type="search" id="search-box" placeholder="選手名・登番で検索"
+           autocomplete="off">
+    <div class="class-filter" id="class-filter">
+      <button class="stadium-btn active" data-class="">全級別</button>
+      <button class="stadium-btn" data-class="A1">A1</button>
+      <button class="stadium-btn" data-class="A2">A2</button>
+      <button class="stadium-btn" data-class="B1">B1</button>
+      <button class="stadium-btn" data-class="B2">B2</button>
+    </div>
+    <select id="sort-select">
+      <option value="win_rate">1着率順</option>
+      <option value="top2_rate">2連対率順</option>
+      <option value="top3_rate">3連対率順</option>
+      <option value="races">出走数順</option>
+      <option value="avg_st">平均ST順 (速い順)</option>
+      <option value="recent_win_rate">直近調子順</option>
+    </select>
+    <label class="min-races-label">
+      <input type="checkbox" id="min-races" checked> 10走以上のみ
+    </label>
+  </div>
+
+  <div id="status" class="status">選手データを読み込み中…</div>
+  <div id="racer-list"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>データソース: <a href="https://github.com/BoatraceOpenAPI" target="_blank" rel="noopener">BoatraceOpenAPI</a></p>
+    <p class="disclaimer">⚠️ 集計は直近データに基づく参考情報です。舟券の購入は自己責任で、20歳未満の方は購入できません。</p>
+  </div>
+</footer>
+
+<script src="assets/racers.js"></script>
+</body>
+</html>
