@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>競艇予想AI | LightGBM LambdaRank による本日の予想</title>
+<meta name="description" content="機械学習(ランキング学習)による競艇予想。本日の全レースの予測順位・勝率・3連単推奨買い目を無料配信。LightGBM LambdaRank モデルが全国24競艇場の出走表・展示タイム・気象を分析。">
+<meta name="keywords" content="競艇,競艇予想,ボートレース,ボートレース予想,AI予想,機械学習,3連単,予想無料,選手データ">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="author" content="競艇予想AI">
+<meta name="theme-color" content="#0f1923">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://kyoteiyoso.adult-bank.jp/">
+<link rel="manifest" href="site.webmanifest">
+<!-- favicon -->
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="images/favicon.ico">
+<!-- performance hints -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<!-- OGP (Open Graph Protocol) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="競艇予想AI">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="競艇予想AI | LightGBM LambdaRank による本日の予想">
+<meta property="og:description" content="機械学習(ランキング学習)による競艇予想。本日の全レースの予測順位・勝率・3連単推奨買い目を配信。">
+<meta property="og:url" content="https://kyoteiyoso.adult-bank.jp/">
+<meta property="og:image" content="https://kyoteiyoso.adult-bank.jp/images/ogp.png">
+<meta property="og:image:width" content="1731">
+<meta property="og:image:height" content="909">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="競艇予想AI | LightGBM LambdaRank による本日の予想">
+<meta name="twitter:description" content="機械学習(ランキング学習)による競艇予想。本日の全レースの予測順位・勝率・3連単推奨買い目を配信。">
+<meta name="twitter:image" content="https://kyoteiyoso.adult-bank.jp/images/ogp.png">
+<!-- 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "競艇予想AI",
+  "alternateName": "ボートレース予想AI",
+  "url": "https://kyoteiyoso.adult-bank.jp/",
+  "description": "機械学習(LightGBM LambdaRank)による競艇(ボートレース)予想と選手分析を無料配信するサイト。",
+  "inLanguage": "ja",
+  "publisher": {
+    "@type": "Organization",
+    "name": "競艇予想AI",
+    "url": "https://kyoteiyoso.adult-bank.jp/",
+    "logo": "https://kyoteiyoso.adult-bank.jp/images/ogp.png"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "競艇予想AIの予想はどのように作られていますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "全国24競艇場の出走表・選手成績・モーター成績・直前展示タイム・気象データを特徴量化し、LightGBMのランキング学習(LambdaRank)モデルで各レース6艇の着順を予測しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "予想は無料で見られますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。本日の全レースの予測順位・AI勝率・3連単推奨買い目をすべて無料で閲覧できます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "的中率・回収率はどのくらいですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "直近の検証期間(Out-of-Sample)での単勝・2連単・3連単の的中率と回収率をサイト上部に掲載しています。数値は日々更新されます。"
+      }
+    }
+  ]
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7970R5QYQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C7970R5QYQ');
+</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <h1>🚤 競艇予想AI</h1>
+    <p class="tagline">LightGBM LambdaRank ランキング学習による本日の全レース予想</p>
+    <nav class="page-nav">
+      <a href="index.html" class="current">本日の予想</a>
+      <a href="racers.html">選手分析</a>
+    </nav>
+    <div id="meta-info" class="meta-info"></div>
+  </div>
+</header>
+
+<nav class="stadium-nav container" id="stadium-nav" aria-label="競艇場の絞り込み"></nav>
+
+<main class="container">
+  <h2 class="sr-only">本日の競艇予想一覧</h2>
+  <div id="model-stats" class="model-stats"></div>
+  <div id="status" class="status">予想データを読み込み中…</div>
+  <noscript>
+    <div class="status">
+      <p>当サイトの予想表示にはJavaScriptが必要です。お使いのブラウザでJavaScriptを有効にしてください。</p>
+      <p>競艇予想AIは、機械学習(LightGBM LambdaRank)を用いて全国24競艇場の本日の全レースについて、
+         予測順位・AI勝率・3連単推奨買い目を無料で配信しています。
+         選手ごとの詳細な成績は<a href="racers.html">選手分析ページ</a>からご覧いただけます。</p>
+    </div>
+  </noscript>
+  <div id="races"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>データソース: <a href="https://github.com/BoatraceOpenAPI" target="_blank" rel="noopener">BoatraceOpenAPI</a> /
+       予測モデル: LightGBM (lambdarank)</p>
+    <p class="disclaimer">⚠️ 本サイトの予想は機械学習モデルによる参考情報です。的中を保証するものではありません。
+       舟券の購入は自己責任で、20歳未満の方は購入できません。</p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

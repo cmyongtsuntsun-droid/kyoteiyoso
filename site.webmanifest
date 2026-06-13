@@ -1,0 +1,17 @@
+{
+ "name": "競艇予想AI",
+ "short_name": "競艇予想AI",
+ "description": "機械学習による競艇予想と選手分析",
+ "start_url": "/",
+ "display": "standalone",
+ "background_color": "#0f1923",
+ "theme_color": "#0f1923",
+ "lang": "ja",
+ "icons": [
+  {
+   "src": "/images/favicon.ico",
+   "sizes": "any",
+   "type": "image/x-icon"
+  }
+ ]
+}

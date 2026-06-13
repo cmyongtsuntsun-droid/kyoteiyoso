@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# 内部データ API (クロール不要)
+Disallow: /api/
+
+Sitemap: https://kyoteiyoso.adult-bank.jp/sitemap.xml

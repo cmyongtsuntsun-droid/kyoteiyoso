@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>選手分析 | 競艇予想AI</title>
+<meta name="description" content="競艇選手の個別データ分析。1600名超の選手の直近成績・コース別成績・場別成績・平均スタートタイミングを集計。選手名・登番で検索できます。">
+<meta name="keywords" content="競艇選手,ボートレーサー,選手成績,コース別成績,平均ST,競艇データ,選手検索">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="author" content="競艇予想AI">
+<meta name="theme-color" content="#0f1923">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://kyoteiyoso.adult-bank.jp/racers.html">
+<link rel="manifest" href="site.webmanifest">
+<!-- favicon -->
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="images/favicon.ico">
+<!-- performance hints -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<!-- OGP (Open Graph Protocol) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="競艇予想AI">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="選手分析 | 競艇予想AI">
+<meta property="og:description" content="競艇選手の個別分析。直近成績・コース別成績・場別成績・スタートタイミングを集計表示。">
+<meta property="og:url" content="https://kyoteiyoso.adult-bank.jp/racers.html">
+<meta property="og:image" content="https://kyoteiyoso.adult-bank.jp/images/ogp.png">
+<meta property="og:image:width" content="1731">
+<meta property="og:image:height" content="909">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="選手分析 | 競艇予想AI">
+<meta name="twitter:description" content="競艇選手の個別分析。直近成績・コース別成績・場別成績・スタートタイミングを集計表示。">
+<meta name="twitter:image" content="https://kyoteiyoso.adult-bank.jp/images/ogp.png">
+<!-- 構造化データ (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "競艇選手 データ分析",
+  "url": "https://kyoteiyoso.adult-bank.jp/racers.html",
+  "description": "競艇選手1600名超の成績データを集計した一覧。コース別・場別の成績、平均STを掲載。",
+  "inLanguage": "ja",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "競艇予想AI",
+    "url": "https://kyoteiyoso.adult-bank.jp/"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://kyoteiyoso.adult-bank.jp/"},
+      {"@type": "ListItem", "position": 2, "name": "選手分析", "item": "https://kyoteiyoso.adult-bank.jp/racers.html"}
+    ]
+  }
+}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7970R5QYQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C7970R5QYQ');
+</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <h1>🚤 競艇予想AI <span class="page-title">選手分析</span></h1>
+    <p class="tagline">直近データに基づく選手個別の成績分析</p>
+    <nav class="page-nav">
+      <a href="index.html">本日の予想</a>
+      <a href="racers.html" class="current">選手分析</a>
+    </nav>
+    <div id="meta-info" class="meta-info"></div>
+  </div>
+</header>
+
+<main class="container">
+  <div id="racer-detail"></div>
+
+  <div class="racer-controls">
+    <input type="search" id="search-box" placeholder="選手名・登番で検索"
+           autocomplete="off">
+    <div class="class-filter" id="class-filter">
+      <button class="stadium-btn active" data-class="">全級別</button>
+      <button class="stadium-btn" data-class="A1">A1</button>
+      <button class="stadium-btn" data-class="A2">A2</button>
+      <button class="stadium-btn" data-class="B1">B1</button>
+      <button class="stadium-btn" data-class="B2">B2</button>
+    </div>
+    <select id="sort-select">
+      <option value="win_rate">1着率順</option>
+      <option value="top2_rate">2連対率順</option>
+      <option value="top3_rate">3連対率順</option>
+      <option value="races">出走数順</option>
+      <option value="avg_st">平均ST順 (速い順)</option>
+      <option value="recent_win_rate">直近調子順</option>
+    </select>
+    <label class="min-races-label">
+      <input type="checkbox" id="min-races" checked> 10走以上のみ
+    </label>
+  </div>
+
+  <div id="status" class="status">選手データを読み込み中…</div>
+  <noscript>
+    <div class="status">
+      <p>選手データの表示にはJavaScriptが必要です。お使いのブラウザでJavaScriptを有効にしてください。</p>
+      <p>各選手の詳細ページは <code>/racers/登番.html</code> から直接アクセスできます
+         (例: <a href="racers/4205.html">racers/4205.html</a>)。</p>
+    </div>
+  </noscript>
+  <div id="racer-list"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>データソース: <a href="https://github.com/BoatraceOpenAPI" target="_blank" rel="noopener">BoatraceOpenAPI</a></p>
+    <p class="disclaimer">⚠️ 集計は直近データに基づく参考情報です。舟券の購入は自己責任で、20歳未満の方は購入できません。</p>
+  </div>
+</footer>
+
+<script src="assets/racers.js"></script>
+</body>
+</html>
