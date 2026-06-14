@@ -1,13 +1,23 @@
 /* 競艇予想AI 静的サイト
  * 静的ホスティングされた予測JSON (api/v1/predict/today.json) を
  * クライアントサイドで fetch して描画する (サーバーレス構成)。
+ *
+ * today.json は「既定日のレース」と「1週間分の日付インデックス(days)」を持つ。
+ * 既定日以外を選択した場合は per-date JSON (api/v1/predict/YYYYMMDD.json) を
+ * 遅延読み込みする。過去日は実際の着順・的中結果も併記する。
  */
 "use strict";
 
-const API_URL = "api/v1/predict/today.json";
-const FALLBACK_JS_URL = "api/v1/predict/today.js";
+const API_BASE = "api/v1/predict/";
+const API_URL = API_BASE + "today.json";
+const FALLBACK_JS_URL = API_BASE + "today.js";
 
-const state = { data: null, selectedStadium: null };
+const state = {
+  data: null, // today.json 全体
+  selectedDate: null, // 表示中の日付 (YYYY-MM-DD)
+  selectedStadium: null,
+  dayCache: {}, // { "YYYY-MM-DD": { races: [...], ... } }
+};
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -15,11 +25,22 @@ async function init() {
   const status = document.getElementById("status");
   try {
     state.data = await loadPredictData();
+    // 既定日のレースをキャッシュに登録 (today.json に同梱されている)
+    state.selectedDate = state.data.default_date ?? state.data.race_date ?? null;
+    if (state.selectedDate) {
+      const meta = dayMetaFor(state.selectedDate) || {};
+      state.dayCache[state.selectedDate] = {
+        race_date: state.selectedDate,
+        race_count: state.data.race_count,
+        has_results: meta.has_results ?? false,
+        result_summary: meta.result_summary ?? null,
+        races: state.data.races,
+      };
+    }
     status.remove();
-    renderMeta();
     renderModelStats();
-    renderStadiumNav();
-    renderRaces();
+    renderDayNav();
+    await selectDate(state.selectedDate);
   } catch (err) {
     status.textContent =
       "予想データの読み込みに失敗しました。予測パイプライン (python -m kyotei.cli predict) を実行してください。 (" + err.message + ")";
@@ -51,11 +72,86 @@ function loadViaScriptTag() {
   });
 }
 
-function renderMeta() {
+/* ===== 日付選択 ===== */
+
+function dayMetaFor(dateStr) {
+  return (state.data.days || []).find((d) => d.race_date === dateStr) || null;
+}
+
+async function loadDay(dateStr) {
+  if (state.dayCache[dateStr]) return state.dayCache[dateStr];
+  const meta = dayMetaFor(dateStr);
+  const file = meta && meta.file ? meta.file : dateStr.replace(/-/g, "") + ".json";
+  const res = await fetch(API_BASE + file, { cache: "no-store" });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const day = await res.json();
+  state.dayCache[dateStr] = day;
+  return day;
+}
+
+async function selectDate(dateStr) {
+  if (!dateStr) {
+    renderRaces([]);
+    return;
+  }
+  state.selectedDate = dateStr;
+  state.selectedStadium = null;
+  renderDayNav();
+  const wrap = document.getElementById("races");
+  let day;
+  try {
+    day = await loadDay(dateStr);
+  } catch (err) {
+    wrap.innerHTML = `<div class="status error">${esc(dateStr)} の予想データを読み込めませんでした。(${esc(err.message)})</div>`;
+    return;
+  }
+  state.currentDay = day;
+  renderMeta(day);
+  renderStadiumNav(day.races);
+  renderRaces(day.races);
+}
+
+function renderDayNav() {
+  const nav = document.getElementById("day-nav");
+  if (!nav) return;
+  const days = state.data.days || [];
+  if (days.length <= 1) {
+    nav.innerHTML = "";
+    return;
+  }
+  nav.innerHTML = days
+    .map((d) => {
+      const active = d.race_date === state.selectedDate ? " active" : "";
+      const tag = d.is_today ? "本日" : d.is_future ? "予定" : "結果";
+      const sub = d.has_results && d.result_summary
+        ? `的中 ${d.result_summary.win_hits}/${d.result_summary.races_with_result}`
+        : `${d.race_count}R`;
+      return `<button class="day-btn${active}" data-date="${esc(d.race_date)}">
+        <span class="day-date">${esc(formatDate(d.race_date))}</span>
+        <span class="day-tag day-tag-${d.is_today ? "today" : d.is_future ? "future" : "past"}">${tag}</span>
+        <span class="day-sub">${esc(sub)}</span>
+      </button>`;
+    })
+    .join("");
+  nav.querySelectorAll(".day-btn").forEach((btn) => {
+    btn.addEventListener("click", () => selectDate(btn.dataset.date));
+  });
+}
+
+/* ===== メタ情報 ===== */
+
+function renderMeta(day) {
   const el = document.getElementById("meta-info");
-  const d = state.data;
-  const generated = d.generated_at ? new Date(d.generated_at).toLocaleString("ja-JP") : "-";
-  el.textContent = `対象日: ${d.race_date ?? "-"} / 全${d.race_count}レース / 予測生成: ${generated}`;
+  const generated = state.data.generated_at
+    ? new Date(state.data.generated_at).toLocaleString("ja-JP")
+    : "-";
+  let line = `対象日: ${day.race_date ?? "-"} / 全${day.race_count}レース / 予測生成: ${generated}`;
+  if (day.has_results && day.result_summary) {
+    const s = day.result_summary;
+    line += ` ／ 実績: 単勝的中 ${s.win_hits}/${s.races_with_result} (${pct(s.win_hit_rate)})`
+      + ` ・ 3連単的中 ${s.trifecta_hits}/${s.races_with_result} (${pct(s.trifecta_hit_rate)})`;
+  }
+  el.textContent = line;
 }
 
 function renderModelStats() {
@@ -72,10 +168,12 @@ function renderModelStats() {
     .join("");
 }
 
-function renderStadiumNav() {
+/* ===== 競艇場ナビ ===== */
+
+function renderStadiumNav(races) {
   const nav = document.getElementById("stadium-nav");
   const stadiums = [...new Map(
-    state.data.races.map((r) => [r.stadium_number, r.stadium_name])
+    races.map((r) => [r.stadium_number, r.stadium_name])
   ).entries()].sort((a, b) => a[0] - b[0]);
 
   const buttons = [[null, "全場"], ...stadiums];
@@ -88,15 +186,17 @@ function renderStadiumNav() {
     btn.addEventListener("click", () => {
       const v = btn.dataset.stadium;
       state.selectedStadium = v === "" ? null : Number(v);
-      renderStadiumNav();
-      renderRaces();
+      renderStadiumNav(races);
+      renderRaces(races);
     });
   });
 }
 
-function renderRaces() {
+/* ===== レース描画 ===== */
+
+function renderRaces(allRaces) {
   const wrap = document.getElementById("races");
-  const races = state.data.races.filter(
+  const races = (allRaces || []).filter(
     (r) => state.selectedStadium == null || r.stadium_number === state.selectedStadium
   );
 
@@ -121,13 +221,19 @@ function renderRaces() {
 }
 
 function renderRaceCard(race) {
+  const result = race.result || {};
+  const showResult = result.has_result;
   const boats = [...race.boats].sort((a, b) => a.predicted_rank - b.predicted_rank);
   const rows = boats
     .map((b) => {
       const prob = Math.round((b.win_probability ?? 0) * 1000) / 10;
       const rankClass = b.predicted_rank <= 2 ? ` r${b.predicted_rank}` : "";
+      const placeCell = showResult
+        ? `<td class="place-cell${b.actual_place ? " place-" + b.actual_place : ""}">${b.actual_place ?? "-"}</td>`
+        : "";
       return `<tr class="rank-${b.predicted_rank}">
         <td class="rank-cell${rankClass}">${b.predicted_rank}</td>
+        ${placeCell}
         <td><span class="boat-badge boat-${b.boat_number}">${b.boat_number}</span></td>
         <td>${racerLink(b)} <small style="color:var(--text-dim)">${esc(b.racer_class ?? "-")}</small></td>
         <td>${fmt(b.national_top1)}</td>
@@ -152,6 +258,10 @@ function renderRaceCard(race) {
     race.wave != null ? `波 ${race.wave}cm` : null,
   ].filter(Boolean).join(" / ");
 
+  const placeHead = showResult ? "<th>着</th>" : "";
+  const resultBadge = showResult ? renderResultBadge(result) : "";
+  const resultLine = showResult ? renderResultLine(result) : "";
+
   return `<article class="race-card">
     <div class="race-head">
       <span class="race-no">${race.race_number}R</span>
@@ -159,14 +269,31 @@ function renderRaceCard(race) {
       <span class="race-close">締切 ${esc(closeTime)}</span>
     </div>
     ${cond ? `<div class="race-cond">${esc(cond)}</div>` : ""}
+    ${resultBadge}
     <table class="boats">
       <thead><tr>
-        <th>予測</th><th>艇</th><th>選手</th><th>全国勝率</th><th>M2連率</th><th>展示T</th><th colspan="2">勝率(AI)</th>
+        <th>予測</th>${placeHead}<th>艇</th><th>選手</th><th>全国勝率</th><th>M2連率</th><th>展示T</th><th colspan="2">勝率(AI)</th>
       </tr></thead>
       <tbody>${rows}</tbody>
     </table>
     <div class="trifecta"><span class="trifecta-label">3連単推奨:</span>${combos}</div>
+    ${resultLine}
   </article>`;
+}
+
+function renderResultBadge(result) {
+  const win = result.win_hit
+    ? '<span class="hit-badge hit">単勝的中</span>'
+    : '<span class="hit-badge miss">単勝不的中</span>';
+  const tri = result.trifecta_hit
+    ? '<span class="hit-badge hit">3連単的中</span>'
+    : '<span class="hit-badge miss">3連単不的中</span>';
+  return `<div class="result-badges">${win}${tri}</div>`;
+}
+
+function renderResultLine(result) {
+  if (!result.actual_trifecta) return "";
+  return `<div class="result-line">結果(3連単): <strong>${esc(result.actual_trifecta)}</strong></div>`;
 }
 
 function racerLink(boat) {
@@ -175,6 +302,14 @@ function racerLink(boat) {
   return `<a class="racer-link" href="racers.html#${boat.racer_number}">${name}</a>`;
 }
 
+/* ===== ユーティリティ ===== */
+
+function formatDate(dateStr) {
+  if (!dateStr) return "-";
+  const [, m, d] = dateStr.split("-");
+  const wd = ["日", "月", "火", "水", "木", "金", "土"][new Date(dateStr).getDay()] ?? "";
+  return `${Number(m)}/${Number(d)}(${wd})`;
+}
 function pct(v) {
   return v == null ? "-" : (v * 100).toFixed(1) + "%";
 }
