@@ -114,6 +114,17 @@
 
 <main class="container">
   <h2 class="sr-only">本日の競艇予想一覧</h2>
+
+  <div class="summary-box">
+    <strong>このページでわかること</strong>
+    <ul>
+      <li>本日の全国24競艇場・全レースのAI予測順位とAI勝率</li>
+      <li>各レースの3連単推奨買い目と「なぜその予想か」の根拠</li>
+      <li>信頼度の高い<a href="#highlight">本日の注目レース（鉄板ランキング）</a></li>
+      <li>過去日の予想は実際の着順・的中結果と<a href="#races">併記</a>（成績の透明性）</li>
+    </ul>
+  </div>
+
   <div id="model-stats" class="model-stats"></div>
   <div id="status" class="status">予想データを読み込み中…</div>
   <noscript>
@@ -124,7 +135,78 @@
          選手ごとの詳細な成績は<a href="racers.html">選手分析ページ</a>からご覧いただけます。</p>
     </div>
   </noscript>
+
+  <section id="highlight" class="highlight-box" hidden>
+    <h2>🔥 本日の注目レース（AI信頼度ランキング）</h2>
+    <div id="highlight-grid" class="highlight-grid"></div>
+  </section>
+
   <div id="races"></div>
+
+  <div class="next-box">
+    <strong>あわせて読みたい</strong>
+    <ul>
+      <li><a href="racers.html">選手分析：1着率・コース別成績・直近の調子で選手を探す</a></li>
+      <li><a href="#guide">AI予想の見方・3連単の買い方の基本</a></li>
+      <li><a href="#glossary">競艇用語集（モーター2連率・展示タイム・STとは）</a></li>
+      <li><a href="links.html">関連リンク集・公式サイト</a></li>
+    </ul>
+  </div>
+
+  <section id="guide" class="content-section">
+    <h2>AI予想の見方と舟券の買い方ガイド</h2>
+    <p>当サイトの予想は、全国24場の出走表・選手成績・モーター成績・直前の展示タイム・気象データを
+       機械学習モデル（LightGBM LambdaRank）が分析し、各レース6艇の着順を相対評価したものです。
+       表の「予測」列が小さいほどAIが上位と見ている艇です。「勝率(AI)」はそのレースで1着になる確率の推定値です。</p>
+
+    <h3>はじめての方へ：チェックリスト</h3>
+    <ul class="checklist">
+      <li>まずは「勝率(AI)」が50%を超える本命がいるレースから見る</li>
+      <li>1コース（1号艇）はイン逃げが決まりやすく、的中の軸にしやすい</li>
+      <li>3連単は点数を絞り、推奨買い目の上位2〜3点から検討する</li>
+      <li>風が強い日（風4m以上）は荒れやすいので少額・見送りも選択肢</li>
+      <li>気になる選手は<a href="racers.html">選手分析</a>でコース別成績を必ず確認</li>
+    </ul>
+
+    <h3>3連単のAI勝率と推奨買い目</h3>
+    <p>3連単は1着・2着・3着を着順通りに当てる賭式で、120通りの組み合わせがあります。
+       当サイトはPlackett-Luceモデルで各組み合わせの確率を推定し、確率が高い順に推奨買い目を提示します。
+       的中率は高くありませんが、回収率（払戻）は大きくなりやすいのが特徴です。</p>
+  </section>
+
+  <section class="content-section faq">
+    <h2>よくある質問（FAQ）</h2>
+    <details>
+      <summary>予想は無料で全部見られますか？</summary>
+      <p>はい。本日の全レースの予測順位・AI勝率・3連単推奨買い目をすべて無料で閲覧できます。会員登録も不要です。</p>
+    </details>
+    <details>
+      <summary>的中率・回収率はどのくらいですか？</summary>
+      <p>ページ上部に検証期間（学習に使っていない直近データ）での単勝・2連単・3連単の的中率を掲載しています。過去日タブでは実際の的中結果も確認できます。</p>
+    </details>
+    <details>
+      <summary>どの競艇場の予想がありますか？</summary>
+      <p>全国24場すべてが対象です。ページ上部の場ボタンで会場ごとに絞り込めます。</p>
+    </details>
+    <details>
+      <summary>予想はいつ更新されますか？</summary>
+      <p>毎日更新しています。締切時刻や直前の展示タイムを反映した順位を配信します。生成時刻はメタ情報に表示されます。</p>
+    </details>
+  </section>
+
+  <section id="glossary" class="content-section">
+    <h2>競艇用語集</h2>
+    <dl class="glossary">
+      <dt>全国勝率</dt><dd>その選手の全国平均の勝率。実力の目安になる基本指標。</dd>
+      <dt>モーター2連率</dt><dd>使用モーターが2着以内に入った割合。機力の好不調を表す。</dd>
+      <dt>展示タイム</dt><dd>レース前の展示航走の周回タイム。直前の足（伸び）の指標。</dd>
+      <dt>ST（スタートタイミング）</dt><dd>スタートの早さ。小さいほど好スタートで、平均STが速い選手は有利。</dd>
+      <dt>イン逃げ</dt><dd>1コースの艇が先頭で第1ターンを回り、そのまま1着になること。</dd>
+      <dt>3連単</dt><dd>1〜3着を着順通りに当てる賭式。120通りで高配当が狙える。</dd>
+      <dt>進入コース</dt><dd>スタート時に実際に取ったコース。枠番と異なる場合がある。</dd>
+      <dt>チルト</dt><dd>モーターの取り付け角度。上げると伸び型、下げると出足型になる。</dd>
+    </dl>
+  </section>
 </main>
 
 <footer class="site-footer">

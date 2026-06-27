@@ -107,8 +107,80 @@ async function selectDate(dateStr) {
   }
   state.currentDay = day;
   renderMeta(day);
+  renderHighlights(day.races);
   renderStadiumNav(day.races);
   renderRaces(day.races);
+}
+
+/* ===== 注目レース (AI信頼度ランキング) ===== */
+
+function topBoat(race) {
+  return [...race.boats].sort((a, b) => a.predicted_rank - b.predicted_rank)[0];
+}
+
+function renderHighlights(races) {
+  const section = document.getElementById("highlight");
+  if (!section) return;
+  const grid = document.getElementById("highlight-grid");
+  const ranked = (races || [])
+    .map((r) => ({ race: r, top: topBoat(r) }))
+    .filter((x) => x.top && x.top.win_probability != null)
+    .sort((a, b) => (b.top.win_probability ?? 0) - (a.top.win_probability ?? 0))
+    .slice(0, 6);
+
+  if (ranked.length === 0) {
+    section.hidden = true;
+    grid.innerHTML = "";
+    return;
+  }
+  section.hidden = false;
+  grid.innerHTML = ranked
+    .map(({ race, top }, i) => {
+      const prob = ((top.win_probability ?? 0) * 100).toFixed(1);
+      const anchor = `race-${race.stadium_number}-${race.race_number}`;
+      return `<button class="highlight-card" data-anchor="${anchor}" data-stadium="${race.stadium_number}">
+        <span class="highlight-rank">信頼度 ${i + 1}位</span>
+        <span class="highlight-where">${esc(race.stadium_name)} ${race.race_number}R</span>
+        <span class="highlight-pick">本命 ${top.boat_number}号艇 ${esc(top.racer_name ?? "-")}</span>
+        <span class="highlight-conf">AI勝率 ${prob}%</span>
+      </button>`;
+    })
+    .join("");
+
+  grid.querySelectorAll(".highlight-card").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const stadium = Number(btn.dataset.stadium);
+      if (state.selectedStadium != null && state.selectedStadium !== stadium) {
+        state.selectedStadium = null;
+        renderStadiumNav(state.currentDay.races);
+        renderRaces(state.currentDay.races);
+      }
+      const el = document.getElementById(btn.dataset.anchor);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  });
+}
+
+/* レース本命の予想根拠を生成する (買い目だけでなく解説を添える) */
+function raceReason(race) {
+  const boats = race.boats || [];
+  const top = topBoat(race);
+  if (!top) return "";
+  const reasons = [];
+  if (top.boat_number === 1) reasons.push("1コースからのイン逃げが期待できる");
+  const maxBy = (key) =>
+    boats.reduce((best, b) => ((b[key] ?? -Infinity) > (best[key] ?? -Infinity) ? b : best), boats[0]);
+  if (maxBy("national_top1") === top && top.national_top1 != null) reasons.push("全国勝率がレース内トップ");
+  if (maxBy("motor_top2") === top && top.motor_top2 != null) reasons.push("モーター2連率が上位");
+  const withExh = boats.filter((b) => b.exhibition_time != null);
+  if (withExh.length) {
+    const fastest = withExh.reduce((best, b) => (b.exhibition_time < best.exhibition_time ? b : best));
+    if (fastest === top) reasons.push("展示タイムが最速");
+  }
+  const prob = Math.round((top.win_probability ?? 0) * 1000) / 10;
+  if (reasons.length === 0) reasons.push("総合力でわずかに上位");
+  return `<strong>本命 ${top.boat_number}号艇 ${esc(top.racer_name ?? "-")}</strong>（AI勝率 ${prob.toFixed(1)}%）。`
+    + `${reasons.join("・")}。`;
 }
 
 function renderDayNav() {
@@ -262,7 +334,7 @@ function renderRaceCard(race) {
   const resultBadge = showResult ? renderResultBadge(result) : "";
   const resultLine = showResult ? renderResultLine(result) : "";
 
-  return `<article class="race-card">
+  return `<article class="race-card" id="race-${race.stadium_number}-${race.race_number}">
     <div class="race-head">
       <span class="race-no">${race.race_number}R</span>
       <span class="race-title">${esc(race.race_title ?? "")}</span>
@@ -270,6 +342,7 @@ function renderRaceCard(race) {
     </div>
     ${cond ? `<div class="race-cond">${esc(cond)}</div>` : ""}
     ${resultBadge}
+    <div class="race-reason">${raceReason(race)}</div>
     <table class="boats">
       <thead><tr>
         <th>予測</th>${placeHead}<th>艇</th><th>選手</th><th>全国勝率</th><th>M2連率</th><th>展示T</th><th colspan="2">勝率(AI)</th>

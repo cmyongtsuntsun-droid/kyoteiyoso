@@ -260,3 +260,101 @@ td.place-3 { color: var(--hit); }
 /* レースカード内の選手名リンク */
 .racer-link { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--text-dim); }
 .racer-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ===== エンゲージメント施策: 冒頭サマリー / 回遊 / 解説 ===== */
+
+/* 「この記事でわかること」冒頭ボックス */
+.summary-box {
+  background: var(--panel); border: 1px solid var(--border);
+  border-left: 4px solid var(--accent2); border-radius: 10px;
+  padding: 14px 18px; margin: 18px 0 4px;
+}
+.summary-box > strong { display: block; color: var(--accent2); margin-bottom: 8px; font-size: 0.98rem; }
+.summary-box ul { margin: 0; padding-left: 1.2em; }
+.summary-box li { font-size: 0.88rem; margin: 3px 0; color: var(--text); }
+
+/* 「次に読む / あわせて読みたい」回遊ボックス */
+.next-box {
+  background: var(--panel-light); border: 1px solid var(--border);
+  border-left: 4px solid var(--accent); border-radius: 10px;
+  padding: 14px 18px; margin: 22px 0;
+}
+.next-box > strong { display: block; color: var(--accent); margin-bottom: 8px; font-size: 0.95rem; }
+.next-box ul { margin: 0; padding-left: 1.2em; list-style: none; }
+.next-box li { margin: 5px 0; font-size: 0.9rem; }
+.next-box li::before { content: "→ "; color: var(--accent); }
+.next-box a { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--text-dim); }
+.next-box a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* 注目レース ランキング (今見る理由) */
+.highlight-box { margin: 22px 0 6px; }
+.highlight-box h2 {
+  font-size: 1.12rem; border-left: 4px solid var(--accent2);
+  padding-left: 10px; margin-bottom: 12px;
+}
+.highlight-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px;
+}
+.highlight-card {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 12px; cursor: pointer;
+  text-align: left; color: var(--text); transition: border-color .15s, transform .1s;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.highlight-card:hover { border-color: var(--accent2); transform: translateY(-1px); }
+.highlight-rank {
+  font-size: 0.72rem; font-weight: 700; color: var(--accent2);
+}
+.highlight-where { font-weight: 700; font-size: 0.95rem; }
+.highlight-pick { font-size: 0.82rem; color: var(--text-dim); }
+.highlight-conf { font-variant-numeric: tabular-nums; color: var(--accent); font-weight: 700; }
+
+/* 予想根拠 (買い目だけでなく解説) */
+.race-reason {
+  margin: 8px 0 4px; padding: 7px 10px; font-size: 0.78rem;
+  background: rgba(41, 182, 246, 0.06); border-radius: 6px;
+  border-left: 2px solid var(--accent); color: var(--text);
+}
+.race-reason strong { color: var(--accent2); }
+
+/* 読み物セクション (解説 / FAQ / 用語集 / チェックリスト) */
+.content-section {
+  margin: 30px 0; border-top: 1px solid var(--border); padding-top: 22px;
+}
+.content-section h2 {
+  font-size: 1.18rem; border-left: 4px solid var(--accent);
+  padding-left: 10px; margin-bottom: 14px;
+}
+.content-section h3 {
+  font-size: 1rem; color: var(--accent); margin: 16px 0 8px;
+}
+.content-section p { font-size: 0.9rem; margin: 8px 0; color: var(--text); }
+.content-section ul, .content-section ol { margin: 8px 0; padding-left: 1.4em; }
+.content-section li { font-size: 0.9rem; margin: 4px 0; }
+
+/* チェックリスト */
+.checklist { list-style: none; padding-left: 0; }
+.checklist li { padding: 4px 0 4px 28px; position: relative; }
+.checklist li::before {
+  content: "✓"; position: absolute; left: 4px; color: var(--hit); font-weight: 700;
+}
+
+/* FAQ (details/summary) */
+.faq details {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0 14px; margin: 8px 0;
+}
+.faq summary {
+  cursor: pointer; padding: 12px 0; font-weight: 600; font-size: 0.92rem;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::before { content: "Q. "; color: var(--accent2); font-weight: 700; }
+.faq details[open] summary { border-bottom: 1px solid var(--border); }
+.faq details p { padding: 10px 0 14px; }
+.faq details p::before { content: "A. "; color: var(--accent); font-weight: 700; }
+
+/* 用語集 */
+.glossary { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 20px; }
+.glossary dt { font-weight: 700; color: var(--accent); font-size: 0.9rem; margin-top: 8px; }
+.glossary dd { margin: 2px 0 0; font-size: 0.85rem; color: var(--text-dim); }
