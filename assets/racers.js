@@ -150,13 +150,15 @@ function renderList() {
 
   wrap.innerHTML = `
     <p class="list-note">${list.length} 選手中 ${shown.length} 名を表示 (行クリックで詳細)</p>
-    <table class="boats racer-table">
-      <thead><tr>
-        <th>#</th><th>登番</th><th>選手名</th><th>級</th><th>出走</th>
-        <th>1着率</th><th>2連対</th><th>3連対</th><th>平均ST</th><th>直近調子</th>
-      </tr></thead>
-      <tbody>${rows}</tbody>
-    </table>`;
+    <div class="table-scroll">
+      <table class="boats racer-table">
+        <thead><tr>
+          <th>#</th><th>登番</th><th>選手名</th><th>級</th><th>出走</th>
+          <th>1着率</th><th>2連対</th><th>3連対</th><th>平均ST</th><th>直近調子</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
 
   wrap.querySelectorAll(".racer-row").forEach((tr) => {
     tr.addEventListener("click", (e) => {
@@ -233,24 +235,24 @@ function renderDetail() {
     <div class="detail-grid">
       <section>
         <h3>コース別成績</h3>
-        <table class="boats">
+        <div class="table-scroll"><table class="boats">
           <thead><tr><th>コース</th><th>出走</th><th>1着率</th><th>3連対</th><th>平均ST</th><th></th></tr></thead>
           <tbody>${courseRows}</tbody>
-        </table>
+        </table></div>
       </section>
       <section>
         <h3>場別成績</h3>
-        <table class="boats">
+        <div class="table-scroll"><table class="boats">
           <thead><tr><th>場</th><th>出走</th><th>1着率</th><th>3連対</th></tr></thead>
           <tbody>${stadiumRows}</tbody>
-        </table>
+        </table></div>
       </section>
       <section>
         <h3>直近${r.recent_races.length}走</h3>
-        <table class="boats">
+        <div class="table-scroll"><table class="boats">
           <thead><tr><th>日付</th><th>レース</th><th>進入</th><th>ST</th><th>着順</th></tr></thead>
           <tbody>${recentRows}</tbody>
-        </table>
+        </table></div>
       </section>
     </div>
   </article>`;

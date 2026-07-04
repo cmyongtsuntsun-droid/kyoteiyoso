@@ -94,27 +94,29 @@
 
   <div id="racer-detail"></div>
 
-  <div class="racer-controls">
-    <input type="search" id="search-box" placeholder="選手名・登番で検索"
-           autocomplete="off">
-    <div class="class-filter" id="class-filter">
-      <button class="stadium-btn active" data-class="">全級別</button>
-      <button class="stadium-btn" data-class="A1">A1</button>
-      <button class="stadium-btn" data-class="A2">A2</button>
-      <button class="stadium-btn" data-class="B1">B1</button>
-      <button class="stadium-btn" data-class="B2">B2</button>
+  <div class="filter-bar">
+    <div class="racer-controls">
+      <input type="search" id="search-box" placeholder="選手名・登番で検索"
+             autocomplete="off">
+      <div class="class-filter" id="class-filter">
+        <button class="stadium-btn active" data-class="">全級別</button>
+        <button class="stadium-btn" data-class="A1">A1</button>
+        <button class="stadium-btn" data-class="A2">A2</button>
+        <button class="stadium-btn" data-class="B1">B1</button>
+        <button class="stadium-btn" data-class="B2">B2</button>
+      </div>
+      <select id="sort-select">
+        <option value="win_rate">1着率順</option>
+        <option value="top2_rate">2連対率順</option>
+        <option value="top3_rate">3連対率順</option>
+        <option value="races">出走数順</option>
+        <option value="avg_st">平均ST順 (速い順)</option>
+        <option value="recent_win_rate">直近調子順</option>
+      </select>
+      <label class="min-races-label">
+        <input type="checkbox" id="min-races" checked> 10走以上のみ
+      </label>
     </div>
-    <select id="sort-select">
-      <option value="win_rate">1着率順</option>
-      <option value="top2_rate">2連対率順</option>
-      <option value="top3_rate">3連対率順</option>
-      <option value="races">出走数順</option>
-      <option value="avg_st">平均ST順 (速い順)</option>
-      <option value="recent_win_rate">直近調子順</option>
-    </select>
-    <label class="min-races-label">
-      <input type="checkbox" id="min-races" checked> 10走以上のみ
-    </label>
   </div>
 
   <div id="status" class="status">選手データを読み込み中…</div>
@@ -157,6 +159,16 @@
   </div>
 </footer>
 
+<button id="to-top-btn" class="to-top-btn" aria-label="ページ上部へ戻る">↑</button>
+<nav class="bottom-nav" aria-label="モバイルナビゲーション">
+  <div class="bottom-nav-inner container">
+    <a href="index.html"><span class="bn-icon">🚤</span>本日の予想</a>
+    <a href="racers.html" class="current"><span class="bn-icon">👤</span>選手分析</a>
+    <a href="links.html"><span class="bn-icon">🔗</span>リンク集</a>
+  </div>
+</nav>
+
+<script src="assets/mobile-ui.js"></script>
 <script src="assets/racers.js"></script>
 </body>
 </html>

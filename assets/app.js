@@ -11,15 +11,29 @@
 const API_BASE = "api/v1/predict/";
 const API_URL = API_BASE + "today.json";
 const FALLBACK_JS_URL = API_BASE + "today.js";
+const FAV_STADIUM_KEY = "kyotei_fav_stadium";
 
 const state = {
   data: null, // today.json 全体
   selectedDate: null, // 表示中の日付 (YYYY-MM-DD)
   selectedStadium: null,
+  stadiumRestored: false, // 起動時に前回選択の競艇場を1回だけ復元する
   dayCache: {}, // { "YYYY-MM-DD": { races: [...], ... } }
 };
 
 document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", bindRaceListEvents);
+
+function bindRaceListEvents() {
+  const wrap = document.getElementById("races");
+  if (!wrap) return;
+  wrap.addEventListener("click", (e) => {
+    const btn = e.target.closest(".share-btn");
+    if (!btn || !window.KyoteiUI) return;
+    const url = `${location.origin}${location.pathname}#${btn.dataset.anchor}`;
+    window.KyoteiUI.share(btn.dataset.title || document.title, url);
+  });
+}
 
 async function init() {
   const status = document.getElementById("status");
@@ -106,6 +120,7 @@ async function selectDate(dateStr) {
     return;
   }
   state.currentDay = day;
+  restoreFavoriteStadium(day.races);
   renderMeta(day);
   renderHighlights(day.races);
   renderStadiumNav(day.races);
@@ -242,6 +257,32 @@ function renderModelStats() {
 
 /* ===== 競艇場ナビ ===== */
 
+/* 前回選んだ競艇場をこのブラウザで記憶し、次回訪問時に自動で絞り込む (1ページ読み込みにつき1回だけ) */
+function restoreFavoriteStadium(races) {
+  if (state.stadiumRestored) return;
+  state.stadiumRestored = true;
+  let fav = null;
+  try {
+    fav = localStorage.getItem(FAV_STADIUM_KEY);
+  } catch (err) {
+    return;
+  }
+  if (fav == null) return;
+  const favNum = Number(fav);
+  if (races.some((r) => r.stadium_number === favNum)) {
+    state.selectedStadium = favNum;
+  }
+}
+
+function saveFavoriteStadium(num) {
+  try {
+    if (num == null) localStorage.removeItem(FAV_STADIUM_KEY);
+    else localStorage.setItem(FAV_STADIUM_KEY, String(num));
+  } catch (err) {
+    /* プライベートブラウジング等で保存できない場合は無視 */
+  }
+}
+
 function renderStadiumNav(races) {
   const nav = document.getElementById("stadium-nav");
   const stadiums = [...new Map(
@@ -258,6 +299,7 @@ function renderStadiumNav(races) {
     btn.addEventListener("click", () => {
       const v = btn.dataset.stadium;
       state.selectedStadium = v === "" ? null : Number(v);
+      saveFavoriteStadium(state.selectedStadium);
       renderStadiumNav(races);
       renderRaces(races);
     });
@@ -334,21 +376,28 @@ function renderRaceCard(race) {
   const resultBadge = showResult ? renderResultBadge(result) : "";
   const resultLine = showResult ? renderResultLine(result) : "";
 
-  return `<article class="race-card" id="race-${race.stadium_number}-${race.race_number}">
+  const anchor = `race-${race.stadium_number}-${race.race_number}`;
+  const top = topBoat(race);
+  const shareTitle = `${race.stadium_name} ${race.race_number}R 本命${top ? top.boat_number + "号艇" : ""} | 競艇予想AI`;
+
+  return `<article class="race-card" id="${anchor}">
     <div class="race-head">
       <span class="race-no">${race.race_number}R</span>
       <span class="race-title">${esc(race.race_title ?? "")}</span>
       <span class="race-close">締切 ${esc(closeTime)}</span>
+      <button class="share-btn" data-anchor="${anchor}" data-title="${esc(shareTitle)}">🔗 共有</button>
     </div>
     ${cond ? `<div class="race-cond">${esc(cond)}</div>` : ""}
     ${resultBadge}
     <div class="race-reason">${raceReason(race)}</div>
-    <table class="boats">
-      <thead><tr>
-        <th>予測</th>${placeHead}<th>艇</th><th>選手</th><th>全国勝率</th><th>M2連率</th><th>展示T</th><th colspan="2">勝率(AI)</th>
-      </tr></thead>
-      <tbody>${rows}</tbody>
-    </table>
+    <div class="table-scroll">
+      <table class="boats">
+        <thead><tr>
+          <th>予測</th>${placeHead}<th>艇</th><th>選手</th><th>全国勝率</th><th>M2連率</th><th>展示T</th><th colspan="2">勝率(AI)</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
     <div class="trifecta"><span class="trifecta-label">3連単推奨:</span>${combos}</div>
     ${resultLine}
   </article>`;
