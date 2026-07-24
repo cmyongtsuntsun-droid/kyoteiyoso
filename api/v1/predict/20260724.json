@@ -1,131 +1,17 @@
 {
- "generated_at": "2026-07-24T04:34:31.464318+00:00",
- "model": {
-  "win_hit_rate": 0.52,
-  "exacta_hit_rate": 0.2105,
-  "trifecta_hit_rate": 0.0889,
-  "valid_races": 1373,
-  "trained_at": "2026-07-24T04:32:15.931041+00:00",
-  "train_rows": 48096,
-  "train_date_range": [
-   "2026-05-25",
-   "2026-07-14"
-  ],
-  "valid_date_range": [
-   "2026-07-15",
-   "2026-07-23"
-  ]
- },
- "default_date": "2026-07-24",
- "days": [
-  {
-   "race_date": "2026-07-18",
-   "race_count": 180,
-   "is_today": false,
-   "is_future": false,
-   "has_results": true,
-   "result_summary": {
-    "races_with_result": 151,
-    "win_hits": 79,
-    "trifecta_hits": 11,
-    "win_hit_rate": 0.5232,
-    "trifecta_hit_rate": 0.0728
-   },
-   "file": "20260718.json"
-  },
-  {
-   "race_date": "2026-07-19",
-   "race_count": 192,
-   "is_today": false,
-   "is_future": false,
-   "has_results": true,
-   "result_summary": {
-    "races_with_result": 168,
-    "win_hits": 81,
-    "trifecta_hits": 14,
-    "win_hit_rate": 0.4821,
-    "trifecta_hit_rate": 0.0833
-   },
-   "file": "20260719.json"
-  },
-  {
-   "race_date": "2026-07-20",
-   "race_count": 156,
-   "is_today": false,
-   "is_future": false,
-   "has_results": true,
-   "result_summary": {
-    "races_with_result": 156,
-    "win_hits": 88,
-    "trifecta_hits": 14,
-    "win_hit_rate": 0.5641,
-    "trifecta_hit_rate": 0.0897
-   },
-   "file": "20260720.json"
-  },
-  {
-   "race_date": "2026-07-21",
-   "race_count": 144,
-   "is_today": false,
-   "is_future": false,
-   "has_results": true,
-   "result_summary": {
-    "races_with_result": 144,
-    "win_hits": 81,
-    "trifecta_hits": 16,
-    "win_hit_rate": 0.5625,
-    "trifecta_hit_rate": 0.1111
-   },
-   "file": "20260721.json"
-  },
-  {
-   "race_date": "2026-07-22",
-   "race_count": 144,
-   "is_today": false,
-   "is_future": false,
-   "has_results": true,
-   "result_summary": {
-    "races_with_result": 144,
-    "win_hits": 70,
-    "trifecta_hits": 14,
-    "win_hit_rate": 0.4861,
-    "trifecta_hit_rate": 0.0972
-   },
-   "file": "20260722.json"
-  },
-  {
-   "race_date": "2026-07-23",
-   "race_count": 156,
-   "is_today": false,
-   "is_future": false,
-   "has_results": true,
-   "result_summary": {
-    "races_with_result": 156,
-    "win_hits": 83,
-    "trifecta_hits": 15,
-    "win_hit_rate": 0.5321,
-    "trifecta_hit_rate": 0.0962
-   },
-   "file": "20260723.json"
-  },
-  {
-   "race_date": "2026-07-24",
-   "race_count": 180,
-   "is_today": true,
-   "is_future": false,
-   "has_results": true,
-   "result_summary": {
-    "races_with_result": 58,
-    "win_hits": 26,
-    "trifecta_hits": 4,
-    "win_hit_rate": 0.4483,
-    "trifecta_hit_rate": 0.069
-   },
-   "file": "20260724.json"
-  }
- ],
+ "generated_at": "2026-07-24T04:34:31.416627+00:00",
  "race_date": "2026-07-24",
  "race_count": 180,
+ "is_today": true,
+ "is_future": false,
+ "has_results": true,
+ "result_summary": {
+  "races_with_result": 58,
+  "win_hits": 26,
+  "trifecta_hits": 4,
+  "win_hit_rate": 0.4483,
+  "trifecta_hit_rate": 0.069
+ },
  "races": [
   {
    "race_id": "202607240101",
