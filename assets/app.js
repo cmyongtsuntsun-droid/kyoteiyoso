@@ -36,6 +36,8 @@ function bindRaceListEvents() {
 }
 
 async function init() {
+  // #status はビルド時に SSR 済みの本文があるときは存在しない。
+  // JS が無くても予想が読める構成なので、要素の有無に依存しない。
   const status = document.getElementById("status");
   try {
     state.data = await loadPredictData();
@@ -51,15 +53,31 @@ async function init() {
         races: state.data.races,
       };
     }
-    status.remove();
+    if (status) status.remove();
     renderModelStats();
     renderDayNav();
     await selectDate(state.selectedDate);
   } catch (err) {
-    status.textContent =
-      "予想データの読み込みに失敗しました。予測パイプライン (python -m kyotei.cli predict) を実行してください。 (" + err.message + ")";
-    status.classList.add("error");
+    showLoadError(status, err);
   }
+}
+
+/* 読み込み失敗の通知。SSR 済みの本文はそのまま残し、上に注意書きを足す。 */
+function showLoadError(status, err) {
+  const message =
+    "最新の予想データを読み込めませんでした。表示中の内容は前回ビルド時点のものです。 (" +
+    err.message + ")";
+  if (status) {
+    status.textContent = message;
+    status.classList.add("error");
+    return;
+  }
+  const wrap = document.getElementById("races");
+  if (!wrap) return;
+  const box = document.createElement("div");
+  box.className = "status error";
+  box.textContent = message;
+  wrap.prepend(box);
 }
 
 async function loadPredictData() {
@@ -366,7 +384,7 @@ function renderRaceCard(race) {
       `<span class="combo-chip"><strong>${esc(c.combination)}</strong><span>${(c.probability * 100).toFixed(1)}%</span></span>`)
     .join("");
 
-  const closeTime = race.race_closed_at ? race.race_closed_at.slice(11, 16) : "-";
+  const closeTime = typeof race.race_closed_at === "string" ? race.race_closed_at.slice(11, 16) : "-";
   const cond = [
     race.wind != null ? `風 ${race.wind}m` : null,
     race.wave != null ? `波 ${race.wave}cm` : null,
@@ -383,7 +401,7 @@ function renderRaceCard(race) {
   return `<article class="race-card" id="${anchor}">
     <div class="race-head">
       <span class="race-no">${race.race_number}R</span>
-      <span class="race-title">${esc(race.race_title ?? "")}</span>
+      <span class="race-title">${esc(typeof race.race_title === "string" ? race.race_title : "")}</span>
       <span class="race-close">締切 ${esc(closeTime)}</span>
       <button class="share-btn" data-anchor="${anchor}" data-title="${esc(shareTitle)}">🔗 共有</button>
     </div>
@@ -419,9 +437,11 @@ function renderResultLine(result) {
 }
 
 function racerLink(boat) {
+  // 静的な選手ページ (racers/{登番}.html) へ直接リンクする。
+  // ハッシュ URL (racers.html#登番) では個別ページがクロールされないため。
   const name = esc(boat.racer_name ?? "-");
   if (boat.racer_number == null) return name;
-  return `<a class="racer-link" href="racers.html#${boat.racer_number}">${name}</a>`;
+  return `<a class="racer-link" href="racers/${boat.racer_number}.html">${name}</a>`;
 }
 
 /* ===== ユーティリティ ===== */
