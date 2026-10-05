@@ -12,7 +12,7 @@ menu.className="site-language-control";
 Object.assign(menu.style,{position:"fixed",top:"8px",right:"10px",zIndex:"2147483000",padding:"5px 8px",background:"#fff",color:"#17211b",border:"1px solid #cbd5d0",borderRadius:"7px",boxShadow:"0 2px 8px #0002",font:"13px/1.4 system-ui,sans-serif"});
 Object.assign(select.style,{border:0,background:"transparent",color:"inherit",font:"inherit",cursor:"pointer"});
 menu.appendChild(select);
-select.addEventListener("change",()=>{let path=location.pathname.replace(/^\/(?:en|zh-cn|zh-tw|ko)(?=\/|$)/i,"/");if(!path.startsWith("/"))path="/"+path;const target=select.value==="ja"?path:"/"+select.value+path;location.href=target+location.search+location.hash;});
+select.addEventListener("change",()=>{let path=location.pathname.replace(/^\/(?:en|zh-cn|zh-tw|ko)(?=\/|$)/i,"");if(!path.startsWith("/"))path="/"+path;const target=select.value==="ja"?path:"/"+select.value+path;location.href=target+location.search+location.hash;});
 function translate(){
  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;
  while((n=walker.nextNode())){const e=n.parentElement;if(!e||e.closest("script,style,noscript,.site-language-control,.site-related-links"))continue;const value=n.nodeValue.trim(),i={en:0,"zh-cn":1,"zh-tw":2,ko:3}[lang],catalog=CATALOG[value];if(catalog&&catalog[lang])n.nodeValue=n.nodeValue.replace(value,catalog[lang]);else{const v=D[value];if(v&&i!==undefined)n.nodeValue=n.nodeValue.replace(value,v[i]);else{const count=value.match(/^([\d,]+)\s*件を表示中$/);if(count&&i!==undefined){const words={en:" items shown","zh-cn":" 项","zh-tw":" 項","ko":"개 표시"};n.nodeValue=n.nodeValue.replace(value,count[1]+words[lang]);}}}}
@@ -31,5 +31,5 @@ function related(){
 let CATALOG={};
 function ready(){document.body.appendChild(menu);translate();related();new MutationObserver(()=>{translate();related();}).observe(document.body,{childList:true,subtree:true,characterData:true});fetch("/catalog-translations.json",{cache:"force-cache"}).then(r=>r.ok?r.json():{}).then(data=>{CATALOG=data||{};translate();}).catch(()=>{});}
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",ready,{once:true});else ready();
-document.head.insertAdjacentHTML("beforeend","<style>.site-language-control select:focus-visible{outline:2px solid #0f766e;outline-offset:2px}</style>");
+document.head.insertAdjacentHTML("beforeend","<style>.site-language-control select:focus-visible{outline:2px solid #0f766e;outline-offset:2px}@media(max-width:700px){.site-header{padding-top:48px!important}}</style>");
 })();

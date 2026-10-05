@@ -1,1 +1,788 @@
-{}
+{
+  "ボートレース全般の公式サイト。レース情報、払戻金、特設サイト、キャンペーン、動画配信情報などの入口です。": {
+    "ko": "보트 레이스 일반 공식 사이트. 레이스 정보, 환불, 특설 사이트, 캠페인, 동영상 전달 정보 등의 입구입니다.",
+    "zh-cn": "一般赛艇比赛的官方网站。这是比赛信息、退款、特殊站点、活动、视频分发信息等的入口点。",
+    "zh-tw": "一般賽艇比賽的官方網站。這是比賽資訊、退款、特殊站點、活動、影片分發資訊等的入口點。",
+    "en": "Official website for boat racing in general. This is the entry point for race information, refunds, special sites, campaigns, video distribution information, etc."
+  },
+  "当日の出走表、オッズ、直前情報、結果、結果一覧を確認できます。": {
+    "ko": "당일의 출주표, 확률, 직전 정보, 결과, 결과 일람을 확인할 수 있습니다.",
+    "en": "You can check the race list, odds, last minute information, results, and results list for the day.",
+    "zh-tw": "您可以查看當天的比賽清單、賠率、最後一刻資訊、結果和結果清單。",
+    "zh-cn": "您可以查看当天的比赛列表、赔率、最后一刻信息、结果和结果列表。"
+  },
+  "ボートレースクラシック、オールスター、グランドチャンピオンなど、主要グレード競走の日程確認に便利です。": {
+    "zh-cn": "方便查看ボートレースクラシック、オールスター、グランドチャンピオン等主要等级赛事的赛程表。",
+    "zh-tw": "方便查看ボートレースクラシック、オールスター、グランドチャンピオン等主要等級賽事的賽程表。",
+    "en": "Convenient for checking the schedule of major grade races such as ボートレースクラシック, オールスター, グランドチャンピオン.",
+    "ko": "ボートレースクラシック, オールスター, グランドチャンピオン 등 주요 등급 경주 일정 확인에 편리합니다."
+  },
+  "最新ニュース、イベント、キャンペーン、配信情報などを確認できます。": {
+    "zh-cn": "您可以查看最新的新闻、活动、活动、分发信息等。",
+    "en": "You can check the latest news, events, campaigns, distribution information, etc.",
+    "zh-tw": "您可以查看最新的新聞、活動、活動、分發資訊等。",
+    "ko": "최신 뉴스, 이벤트, 캠페인, 게재 정보 등을 확인할 수 있습니다."
+  },
+  "レース情報、結果、選手別データ、登録期別データ、支部別データ、場別データなどを調べられる非公式系データサイトです。": {
+    "zh-tw": "這是一個非官方的數據網站，您可以在其中查看比賽資訊、成績、按運動員分類的數據、按報名時段分類的數據、按分支機構分類的數據、按場地分類的數據等。",
+    "en": "This is an unofficial data site where you can check race information, results, data by athlete, data by registration period, data by branch, data by venue, etc.",
+    "ko": "레이스 정보, 결과, 선수별 데이터, 등록기별 데이터, 지부별 데이터, 장별 데이터 등을 조사할 수 있는 비공식계 데이터 사이트입니다.",
+    "zh-cn": "这是一个非官方的数据网站，您可以在其中查看比赛信息、成绩、按运动员分类的数据、按报名时段分类的数据、按分支机构分类的数据、按场地分类的数据等。"
+  },
+  "期別の選手データを確認できる名鑑サイトです。登録番号、成績、能力指数などの確認に使えます。": {
+    "en": "This is a directory site where you can check player data by period. You can use it to check your registration number, grades, ability index, etc.",
+    "zh-cn": "这是一个目录网站，您可以在其中按时期查看玩家数据。您可以用它来查询您的学号、成绩、能力指数等。",
+    "zh-tw": "這是一個目錄網站，您可以在其中按時期查看玩家資料。您可以用它來查詢您的學號、成績、能力指數等。",
+    "ko": "기별의 선수 데이터를 확인할 수 있는 명감 사이트입니다. 등록 번호, 성적, 능력 지수 등의 확인에 사용할 수 있습니다."
+  },
+  "展示タイム、逃げ率、差し・まくり率など、条件検索やデータ分析に使えるサイトです。": {
+    "en": "This site can be used for conditional searches and data analysis such as exhibition time, escape rate, insert/roll rate, etc.",
+    "zh-cn": "本站可用于展览时间、逃逸率、插/滚率等条件搜索和数据分析。",
+    "ko": "전시타임, 도망률, 급여・주기율 등 조건 검색이나 데이터 분석에 사용할 수 있는 사이트입니다.",
+    "zh-tw": "本站可用於展覽時間、逃脫率、插/滾率等條件搜尋和資料分析。"
+  },
+  "公式ボートレースWeb映像サービス。レースライブ、リプレイ、出走表、各種データ、YouTube LIVEとの同時チェックに対応しています。": {
+    "en": "Official boat race web video service. Supports simultaneous checking of race live, replay, race list, various data, and YouTube LIVE.",
+    "ko": "공식 보트 레이스 웹 영상 서비스. 레이스 라이브, 리플레이, 출주표, 각종 데이터, YouTube LIVE와의 동시 체크에 대응하고 있습니다.",
+    "zh-tw": "官方划船比賽網路影片服務。支援同時查看比賽直播、回放、比賽清單、各種數據、YouTube LIVE。",
+    "zh-cn": "官方划船比赛网络视频服务。支持同时查看比赛直播、回放、比赛列表、各种数据、YouTube LIVE。"
+  },
+  "ボートレース福岡のライブ・リプレイ確認用ページです。": {
+    "ko": "보트 레이스 福岡의 라이브 리플레이 확인 페이지입니다.",
+    "zh-tw": "這是查看福岡賽艇比賽現場回放的頁面。",
+    "zh-cn": "这是查看福岡赛艇比赛现场回放的页面。",
+    "en": "This is the page to check the live replay of the boat race 福岡."
+  },
+  "蒲郡で開催されたレースのリプレイ動画を確認できます。": {
+    "en": "You can check replay videos of races held at 蒲郡.",
+    "ko": "蒲郡에서 개최된 레이스의 리플레이 동영상을 확인할 수 있습니다.",
+    "zh-cn": "您可以查看蒲郡举行的比赛的回放视频。",
+    "zh-tw": "您可以查看蒲郡舉行的比賽的回放影片。"
+  },
+  "住之江で行われたレースのリプレイ確認に使えます。": {
+    "ko": "住之江에서 행해진 레이스의 리플레이 확인에 사용할 수 있습니다.",
+    "zh-tw": "它可以用來查看在住之江舉行的比賽的重播。",
+    "zh-cn": "它可以用来查看在住之江举行的比赛的重播。",
+    "en": "It can be used to check replays of races held at 住之江."
+  },
+  "スマホ向けの公式投票サイト。レースLIVEやリプレイ映像も視聴できます。": {
+    "zh-tw": "智慧型手機官方投票網站。您還可以觀看比賽直播並重播影片。",
+    "ko": "스마트 폰을위한 공식 투표 사이트. 레이스 LIVE나 리플레이 영상도 시청할 수 있습니다.",
+    "en": "Official voting site for smartphones. You can also watch race LIVE and replay videos.",
+    "zh-cn": "智能手机官方投票网站。您还可以观看比赛直播并重播视频。"
+  },
+  "テレボートからのお知らせや、インターネット投票関連情報を確認できます。": {
+    "en": "You can check announcements from テレボート and information related to internet voting.",
+    "ko": "テレボート의 소식과 인터넷 투표 관련 정보를 확인할 수 있습니다.",
+    "zh-tw": "您可以查看テレボート的公告以及網路投票相關資訊。",
+    "zh-cn": "您可以查看テレボート的公告以及网络投票相关信息。"
+  },
+  "ボートレースの基本、舟券の種類、買い方、ボートレース場での過ごし方などを学べる公式ガイドです。": {
+    "en": "This is an official guide where you can learn the basics of boat racing, the types of boat tickets, how to buy them, and how to spend your time at the boat race course.",
+    "zh-tw": "這是一份官方指南，您可以在其中了解賽艇比賽的基礎知識、賽艇票的類型、如何購買賽艇票以及如何在賽艇場度過時光。",
+    "zh-cn": "这是一份官方指南，您可以在其中了解赛艇比赛的基础知识、赛艇票的类型、如何购买赛艇票以及如何在赛艇场度过时光。",
+    "ko": "보트레이스의 기본, 배권의 종류, 구입 방법, 보트레이스장에서의 보내는 방법 등을 배울 수 있는 공식 가이드입니다."
+  },
+  "舟券の種類、的中率、買い方などを初心者向けに解説しています。": {
+    "en": "Beginner-friendly explanations of betting ticket types, hit rates and how to place bets.",
+    "zh-cn": "面向初学者介绍舟券种类、命中率和购买方法。",
+    "zh-tw": "面向初學者介紹舟券種類、命中率及購買方式。",
+    "ko": "초보자를 위해 승선권 종류, 적중률, 구매 방법을 설명합니다."
+  },
+  "浜名湖は広い競走水面で、スピード優先、まくり差しが入りやすい傾向などが紹介されています。": {
+    "en": "浜名湖 is a wide race surface, prioritizes speed, and tends to be easy to roll over.",
+    "zh-cn": "浜名湖 比赛场地宽阔，速度优先，容易翻车。",
+    "ko": "浜名湖는 넓은 경주 수면으로, 스피드 우선, 끼워넣기가 쉬운 경향 등이 소개되고 있습니다.",
+    "zh-tw": "浜名湖 比賽場地寬闊，速度優先，容易翻車。"
+  },
+  "津は伊勢湾に面し、風向きや気温変化に注意が必要な荒れやすい水面として紹介されています。": {
+    "en": "津 faces 伊勢湾 and is described as a rough water surface that requires careful attention to wind direction and temperature changes.",
+    "ko": "津는 伊勢湾에 접해, 풍향이나 기온 변화에 주의가 필요한 거칠기 쉬운 수면으로서 소개되고 있습니다.",
+    "zh-cn": "津面向伊勢湾，被描述为粗糙的水面，需要仔细注意风向和温度变化。",
+    "zh-tw": "津面對伊勢湾，被描述為粗糙的水面，需要仔細注意風向和溫度變化。"
+  },
+  "鳴門の水面や観戦スポット、施設情報を確認できます。": {
+    "en": "You can check the water surface, viewing spots, and facility information of 鳴門.",
+    "zh-cn": "您可以查看鳴門的水面、观赏点和设施信息。",
+    "ko": "鳴門의 수면, 관전 장소, 시설 정보를 확인하실 수 있습니다.",
+    "zh-tw": "您可以查看鳴門的水面、觀賞點和設施資訊。"
+  },
+  "福岡水面攻略、ボートレース場データ集、モーター成績、ボート成績、選手短評などを確認できます。": {
+    "en": "You can check 福岡 water surface strategy, boat race track data collection, motor results, boat results, short reviews of athletes, etc.",
+    "zh-cn": "您可以查看福岡水面攻略、赛艇赛道数据采集、电机成绩、赛艇成绩、运动员短评等。",
+    "ko": "福岡 수면 공략, 보트레이스장 데이터집, 모터 성적, 보트 성적, 선수 단평 등을 확인할 수 있습니다.",
+    "zh-tw": "您可以查看福岡水面攻略、賽艇賽道資料收集、馬達成績、賽艇成績、運動員短評等。"
+  },
+  "ボートレース専門メディア。出走表、オッズ、結果、コラム、モーター解説などを確認できます。": {
+    "en": "Media specializing in boat racing. You can check the race list, odds, results, columns, motor commentary, etc.",
+    "ko": "보트 레이스 전문 미디어. 출주표, 확률, 결과, 칼럼, 모터 해설 등을 확인할 수 있습니다.",
+    "zh-cn": "专门从事赛艇比赛的媒体。您可以查看赛事列表、赔率、结果、栏目、赛车解说等。",
+    "zh-tw": "專門從事賽艇比賽的媒體。您可以查看賽事清單、賠率、結果、欄位、賽車解說等。"
+  },
+  "当日のボートレース出走表、オッズ、結果確認に使えます。": {
+    "en": "You can use it to check the boat race entry list, odds, and results for the day.",
+    "zh-cn": "您可以使用它来查看当天的划船比赛参赛名单、赔率和结果。",
+    "zh-tw": "您可以使用它來查看當天的划船比賽參賽名單、賠率和結果。",
+    "ko": "당일 보트 레이스 출주표, 확률, 결과 확인에 사용할 수 있습니다."
+  },
+  "モーター、ボート、レーサーの見方を初心者向けに解説しています。": {
+    "en": "Explains how to view motors, boats, and racers for beginners.",
+    "zh-cn": "向初学者解释如何查看发动机、船只和赛车。",
+    "zh-tw": "向初學者解釋如何查看引擎、船隻和賽車。",
+    "ko": "모터, 보트, 레이서의 견해를 초보자용으로 해설하고 있습니다."
+  },
+  "入場規制、電話投票の利用停止、依存症相談窓口などの情報を確認できます。": {
+    "ko": "입장 규제, 전화 투표 이용 정지, 중독 상담 창구 등의 정보를 확인할 수 있습니다.",
+    "zh-cn": "您可以查看入场限制、电话投票暂停、戒瘾咨询服务等信息。",
+    "zh-tw": "您可以查看入場限制、電話投票暫停、戒癮諮詢服務等資訊。",
+    "en": "You can check information such as admission restrictions, suspension of telephone voting, and addiction consultation services."
+  },
+  "ギャンブル等依存症を含む依存症対策、相談窓口、支援情報の確認に使えます。": {
+    "zh-cn": "可用于确认赌博成瘾、咨询窗口、支援信息等成瘾对策。",
+    "ko": "도박 등 중독을 포함한 중독 대책, 상담 창구, 지원 정보의 확인에 사용할 수 있습니다.",
+    "zh-tw": "可用於確認賭博成癮、諮詢窗口、支援資訊等成癮對策。",
+    "en": "It can be used to check countermeasures for addictions, including gambling addiction, consultation counters, and support information."
+  },
+  "過去日の予想は実際の着順・的中結果と": {
+    "en": "Past predictions alongside actual finishing positions and results",
+    "zh-cn": "往日预测与实际名次和命中结果一并展示",
+    "zh-tw": "過往預測與實際名次及命中結果一併呈現",
+    "ko": "과거 예상과 실제 착순 및 적중 결과를 함께 표시"
+  },
+  "でコース別成績を必ず確認": {
+    "en": "and check the course-by-course results",
+    "zh-cn": "并务必查看按赛道划分的成绩",
+    "zh-tw": "並務必查看按航道區分的成績",
+    "ko": "코스별 성적도 꼭 확인하세요"
+  },
+  "本日の注目レース（鉄板ランキング）": {
+    "en": "featured races",
+    "zh-cn": "重点赛事",
+    "zh-tw": "焦點賽事",
+    "ko": "주요 경주"
+  },
+  "AI予想の見方と舟券の買い方ガイド": {
+    "en": "How to read AI predictions and place bets",
+    "zh-cn": "如何阅读AI预测并投注",
+    "zh-tw": "如何閱讀AI預測並投注",
+    "ko": "AI 예상 확인 및 베팅 방법"
+  },
+  "はじめての方へ：チェックリスト": {
+    "en": "Checklist for first-time visitors",
+    "zh-cn": "新手查看清单",
+    "zh-tw": "新手查看清單",
+    "ko": "처음 방문하는 분을 위한 체크리스트"
+  },
+  "競艇用語集": {
+    "en": "Boat-racing glossary",
+    "zh-cn": "竞艇术语",
+    "zh-tw": "競艇術語",
+    "ko": "경정 용어집"
+  },
+  "全国勝率": {
+    "en": "National win rate",
+    "zh-cn": "全国胜率",
+    "zh-tw": "全國勝率",
+    "ko": "전국 승률"
+  },
+  "その選手の全国平均の勝率。実力の目安になる基本指標。": {
+    "en": "A racer's average win rate nationwide; a basic measure of performance.",
+    "zh-cn": "选手在全国赛事中的平均胜率，是衡量实力的基础指标。",
+    "zh-tw": "選手在全國賽事中的平均勝率，是衡量實力的基礎指標。",
+    "ko": "선수의 전국 평균 승률로 실력을 가늠하는 기본 지표입니다."
+  },
+  "展示タイム": {
+    "en": "Pre-race trial time",
+    "zh-cn": "赛前试航时间",
+    "zh-tw": "賽前試航時間",
+    "ko": "레이스 전 전시 타임"
+  },
+  "レース前の展示航走の周回タイム。直前の足（伸び）の指標。": {
+    "en": "Lap time from the pre-race trial run; an indicator of the boat's speed before the start.",
+    "zh-cn": "赛前展示航行的圈速，可观察起跑前的艇速表现。",
+    "zh-tw": "賽前展示航行的圈速，可觀察起跑前的艇速表現。",
+    "ko": "레이스 전 전시 주행의 랩타임으로 출발 직전 보트의 속도 지표입니다."
+  },
+  "ST（スタートタイミング）": {
+    "en": "ST (start timing)",
+    "zh-cn": "ST（起跑时机）",
+    "zh-tw": "ST（起跑時機）",
+    "ko": "ST (스타트 타이밍)"
+  },
+  "スタートの早さ。小さいほど好スタートで、平均STが速い選手は有利。": {
+    "en": "Start timing. A smaller value means a quicker start; racers with a faster average ST have an advantage.",
+    "zh-cn": "起跑时机指标，数值越小代表起跑越快；平均ST较快的选手更有优势。",
+    "zh-tw": "起跑時機指標，數值越小代表起跑越快；平均ST較快的選手更有優勢。",
+    "ko": "스타트 타이밍입니다. 값이 작을수록 빠른 출발이며 평균 ST가 빠른 선수가 유리합니다."
+  },
+  "イン逃げ": {
+    "en": "Inside-lane lead",
+    "zh-cn": "内道领先",
+    "zh-tw": "內道領先",
+    "ko": "인코스 선두"
+  },
+  "進入コース": {
+    "en": "Entry lane",
+    "zh-cn": "实际进场赛道",
+    "zh-tw": "實際進場航道",
+    "ko": "진입 코스"
+  },
+  "スタート時に実際に取ったコース。枠番と異なる場合がある。": {
+    "en": "The lane a racer actually enters at the start; it may differ from the assigned boat number.",
+    "zh-cn": "选手起跑时实际进入的赛道，可能与艇号不同。",
+    "zh-tw": "選手起跑時實際進入的航道，可能與艇號不同。",
+    "ko": "출발할 때 선수가 실제로 진입한 코스이며, 보트 번호와 다를 수 있습니다."
+  },
+  "チルト": {
+    "en": "Motor trim angle",
+    "zh-cn": "马达倾角",
+    "zh-tw": "馬達傾角",
+    "ko": "모터 틸트 각도"
+  },
+  "モーターの取り付け角度。上げると伸び型、下げると出足型になる。": {
+    "en": "The motor's mounting angle. Raising it favors top speed; lowering it favors acceleration.",
+    "zh-cn": "马达的安装角度。角度提高偏重直线速度，角度降低偏重起步加速。",
+    "zh-tw": "馬達的安裝角度。角度提高偏重直線速度，角度降低偏重起步加速。",
+    "ko": "모터 장착 각도입니다. 높이면 직선 속도, 낮추면 초반 가속에 유리합니다."
+  },
+  "テーマの近い姉妹サイト": {
+    "en": "Related websites",
+    "zh-cn": "相关网站",
+    "zh-tw": "相關網站",
+    "ko": "관련 사이트"
+  },
+  "🚤 競艇予想AI": {
+    "en": "🚤 Boat Racing AI Predictions",
+    "zh-cn": "🚤 竞艇AI预测",
+    "zh-tw": "🚤 競艇AI預測",
+    "ko": "🚤 경정 AI 예상"
+  },
+  "本日の予想": {
+    "en": "Today's predictions",
+    "zh-cn": "今日预测",
+    "zh-tw": "今日預測",
+    "ko": "오늘의 예상"
+  },
+  "選手分析": {
+    "en": "Racer analysis",
+    "zh-cn": "选手分析",
+    "zh-tw": "選手分析",
+    "ko": "선수 분석"
+  },
+  "リンク集": {
+    "en": "Links",
+    "zh-cn": "链接",
+    "zh-tw": "連結",
+    "ko": "링크"
+  },
+  "選手名": {
+    "en": "Racer name",
+    "zh-cn": "选手姓名",
+    "zh-tw": "選手姓名",
+    "ko": "선수명"
+  },
+  "選手名・登番で検索": {
+    "en": "Search by racer name or registration number",
+    "zh-cn": "按选手姓名或注册编号搜索",
+    "zh-tw": "依選手姓名或登錄編號搜尋",
+    "ko": "선수명 또는 등록 번호로 검색"
+  },
+  "出走": {
+    "en": "Starts",
+    "zh-cn": "出场",
+    "zh-tw": "出賽",
+    "ko": "출전"
+  },
+  "2連対": {
+    "en": "Top-two",
+    "zh-cn": "前二",
+    "zh-tw": "前二",
+    "ko": "2연대"
+  },
+  "3連対": {
+    "en": "Top-three",
+    "zh-cn": "前三",
+    "zh-tw": "前三",
+    "ko": "3연대"
+  },
+  "全級別": {
+    "en": "All classes",
+    "zh-cn": "全部级别",
+    "zh-tw": "全部級別",
+    "ko": "전체 등급"
+  },
+  "10走以上のみ": {
+    "en": "10 or more starts",
+    "zh-cn": "仅显示出场10次以上",
+    "zh-tw": "僅顯示出賽10次以上",
+    "ko": "10회 이상 출전만"
+  },
+  "1着率順": {
+    "en": "Win rate",
+    "zh-cn": "胜率",
+    "zh-tw": "勝率",
+    "ko": "승률"
+  },
+  "2連対率順": {
+    "en": "Top-two rate",
+    "zh-cn": "前二率",
+    "zh-tw": "前二率",
+    "ko": "2연대율"
+  },
+  "3連対率順": {
+    "en": "Top-three rate",
+    "zh-cn": "前三率",
+    "zh-tw": "前三率",
+    "ko": "3연대율"
+  },
+  "出走数順": {
+    "en": "Most starts",
+    "zh-cn": "出场次数",
+    "zh-tw": "出賽次數",
+    "ko": "출전 횟수"
+  },
+  "平均ST順 (速い順)": {
+    "en": "Average ST (fastest first)",
+    "zh-cn": "平均ST（由快到慢）",
+    "zh-tw": "平均ST（由快至慢）",
+    "ko": "평균 ST (빠른 순)"
+  },
+  "直近調子順": {
+    "en": "Recent form",
+    "zh-cn": "近期状态",
+    "zh-tw": "近期狀態",
+    "ko": "최근 컨디션"
+  },
+  "本日の予想一覧": {
+    "en": "Today's race predictions",
+    "zh-cn": "今日赛事预测",
+    "zh-tw": "今日賽事預測",
+    "ko": "오늘의 경주 예상"
+  },
+  "本日の競艇予想一覧": {
+    "en": "Today's boat-race predictions",
+    "zh-cn": "今日竞艇预测",
+    "zh-tw": "今日競艇預測",
+    "ko": "오늘의 경정 예상"
+  },
+  "LightGBM LambdaRank ランキング学習による本日の全レース予想": {
+    "en": "Today's race forecasts powered by LightGBM LambdaRank ranking",
+    "zh-cn": "基于LightGBM LambdaRank排序学习的今日赛事预测",
+    "zh-tw": "以LightGBM LambdaRank排序學習提供今日賽事預測",
+    "ko": "LightGBM LambdaRank 랭킹 학습으로 제공하는 오늘의 전체 경주 예상"
+  },
+  "このページでわかること": {
+    "en": "What you'll find on this page",
+    "zh-cn": "本页内容",
+    "zh-tw": "本頁內容",
+    "ko": "이 페이지에서 확인할 수 있는 내용"
+  },
+  "本日の全国24競艇場・全レースのAI予測順位とAI勝率": {
+    "en": "AI rankings and win probabilities for today's races at all 24 venues",
+    "zh-cn": "今日全国24个竞艇场所有赛事的AI排名与胜率",
+    "zh-tw": "今日全國24個競艇場所有賽事的AI排名與勝率",
+    "ko": "전국 24개 경기장의 오늘 모든 경주에 대한 AI 순위와 승률"
+  },
+  "各レースの3連単推奨買い目と「なぜその予想か」の根拠": {
+    "en": "Suggested trifecta bets for each race, with reasons behind the predictions",
+    "zh-cn": "各场赛事的三连单建议及预测依据",
+    "zh-tw": "各場賽事的三連單建議及預測依據",
+    "ko": "각 경주의 삼연승식 추천과 예상 근거"
+  },
+  "信頼度の高い": {
+    "en": "High-confidence: ",
+    "zh-cn": "高信心：",
+    "zh-tw": "高信心：",
+    "ko": "신뢰도 높은: "
+  },
+  "併記": {
+    "en": "are shown together",
+    "zh-cn": "一并展示",
+    "zh-tw": "一併呈現",
+    "ko": "함께 표시"
+  },
+  "（成績の透明性）": {
+    "en": "(for transparent results)",
+    "zh-cn": "（成绩公开透明）",
+    "zh-tw": "（成績公開透明）",
+    "ko": "(결과를 투명하게 공개)"
+  },
+  "単勝的中率(検証)": {
+    "en": "Win-bet hit rate (backtest)",
+    "zh-cn": "单胜命中率（验证）",
+    "zh-tw": "單勝命中率（驗證）",
+    "ko": "단승 적중률 (검증)"
+  },
+  "2連単的中率(検証)": {
+    "en": "Exacta hit rate (backtest)",
+    "zh-cn": "二连单命中率（验证）",
+    "zh-tw": "二連單命中率（驗證）",
+    "ko": "연승식 적중률 (검증)"
+  },
+  "3連単的中率(検証)": {
+    "en": "Trifecta hit rate (backtest)",
+    "zh-cn": "三连单命中率（验证）",
+    "zh-tw": "三連單命中率（驗證）",
+    "ko": "삼연승식 적중률 (검증)"
+  },
+  "検証レース数": {
+    "en": "Backtested races",
+    "zh-cn": "验证赛事数",
+    "zh-tw": "驗證賽事數",
+    "ko": "검증 경주 수"
+  },
+  "まずは「勝率(AI)」が50%を超える本命がいるレースから見る": {
+    "en": "Start with races where the AI's top pick has a win probability above 50%",
+    "zh-cn": "先查看AI首选胜率超过50%的赛事",
+    "zh-tw": "先查看AI首選勝率超過50%的賽事",
+    "ko": "AI 추천 선수의 승률이 50%를 넘는 경주부터 확인하세요"
+  },
+  "1コース（1号艇）はイン逃げが決まりやすく、的中の軸にしやすい": {
+    "en": "Boat 1 starts from the inside lane, where an inside lead is more common",
+    "zh-cn": "1号艇位于内道，较容易以内道领先取得胜利",
+    "zh-tw": "1號艇位於內道，較容易以內道領先取得勝利",
+    "ko": "1번 보트는 안쪽 코스에서 출발해 인코스 선두를 잡기 쉽습니다"
+  },
+  "3連単は点数を絞り、推奨買い目の上位2〜3点から検討する": {
+    "en": "Keep trifecta combinations selective; consider the top two or three suggestions first",
+    "zh-cn": "缩小三连单组合范围，可先参考排名前2至3的建议",
+    "zh-tw": "縮小三連單組合範圍，可先參考排名前2至3的建議",
+    "ko": "삼연승식 조합은 줄이고 추천 상위 2~3개부터 검토하세요"
+  },
+  "風が強い日（風4m以上）は荒れやすいので少額・見送りも選択肢": {
+    "en": "Strong winds (4 m/s or more) can make races less predictable; consider smaller bets or skipping",
+    "zh-cn": "风力达到4米/秒时赛事更容易出现冷门，可考虑减少投注或不投注",
+    "zh-tw": "風力達到4公尺/秒時賽事較容易出現冷門，可考慮減少投注或不投注",
+    "ko": "강풍(초속 4m 이상)에는 변수가 커질 수 있어 소액 베팅이나 관전을 고려하세요"
+  },
+  "3連単のAI勝率と推奨買い目": {
+    "en": "AI probabilities and suggested trifecta bets",
+    "zh-cn": "三连单AI胜率与推荐组合",
+    "zh-tw": "三連單AI勝率與推薦組合",
+    "ko": "삼연승식 AI 승률과 추천 조합"
+  },
+  "3連単は1着・2着・3着を着順通りに当てる賭式で、120通りの組み合わせがあります。 当サイトはPlackett-Luceモデルで各組み合わせの確率を推定し、確率が高い順に推奨買い目を提示します。 的中率は高くありませんが、回収率（払戻）は大きくなりやすいのが特徴です。": {
+    "en": "A trifecta requires predicting the first-, second- and third-place finishers in exact order, with 120 possible combinations. Our Plackett–Luce model estimates each combination's probability and lists the strongest picks first. Hit rates are naturally limited, while payouts can be larger.",
+    "zh-cn": "三连单要求按顺序预测前三名，共有120种组合。本网站使用Plackett-Luce模型估算每种组合的概率，并按概率由高到低列出建议。命中率可能较低，但奖金通常更高。",
+    "zh-tw": "三連單須依序預測前三名，共有120種組合。本網站使用Plackett-Luce模型估算各組合的機率，並依機率由高至低列出建議。命中率可能較低，但獎金通常較高。",
+    "ko": "삼연승식은 1~3위 선수를 순서대로 맞히는 방식으로 조합은 120가지입니다. Plackett-Luce 모델로 각 조합의 확률을 계산해 가능성이 높은 추천부터 보여줍니다. 적중률은 낮을 수 있지만 배당금이 커질 수 있습니다."
+  },
+  "よくある質問（FAQ）": {
+    "en": "Frequently asked questions",
+    "zh-cn": "常见问题",
+    "zh-tw": "常見問題",
+    "ko": "자주 묻는 질문"
+  },
+  "予想は無料で全部見られますか？": {
+    "en": "Are all predictions free to view?",
+    "zh-cn": "所有预测都可以免费查看吗？",
+    "zh-tw": "所有預測都可以免費查看嗎？",
+    "ko": "모든 예상을 무료로 볼 수 있나요?"
+  },
+  "はい。本日の全レースの予測順位・AI勝率・3連単推奨買い目をすべて無料で閲覧できます。会員登録も不要です。": {
+    "en": "Yes. Today's rankings, AI win probabilities and suggested trifecta bets are free to view. No account is required.",
+    "zh-cn": "是的。今日赛事排名、AI胜率和三连单建议均可免费查看，无需注册。",
+    "zh-tw": "是的。今日賽事排名、AI勝率及三連單建議均可免費查看，無須註冊。",
+    "ko": "네. 오늘의 순위, AI 승률, 삼연승식 추천을 모두 무료로 볼 수 있으며 회원가입도 필요 없습니다."
+  },
+  "的中率・回収率はどのくらいですか？": {
+    "en": "What are the hit and return rates?",
+    "zh-cn": "命中率和回报率是多少？",
+    "zh-tw": "命中率與回報率是多少？",
+    "ko": "적중률과 환수율은 어느 정도인가요?"
+  },
+  "ページ上部に検証期間（学習に使っていない直近データ）での単勝・2連単・3連単の的中率を掲載しています。過去日タブでは実際の的中結果も確認できます。": {
+    "en": "The summary above shows win, exacta and trifecta hit rates on recent data not used for training. Past-date tabs also show actual results.",
+    "zh-cn": "页面上方列出未用于训练的近期数据中，单胜、二连单和三连单的命中率。过去日期也可查看实际结果。",
+    "zh-tw": "頁面上方列出未用於訓練的近期資料中，單勝、二連單及三連單的命中率。過去日期也可查看實際結果。",
+    "ko": "위쪽에 학습에 사용하지 않은 최근 데이터의 단승·연승식·삼연승식 적중률을 표시합니다. 과거 날짜 탭에서 실제 결과도 확인할 수 있습니다."
+  },
+  "どの競艇場の予想がありますか？": {
+    "en": "Which race venues are covered?",
+    "zh-cn": "涵盖哪些竞艇场？",
+    "zh-tw": "涵蓋哪些競艇場？",
+    "ko": "어떤 경기장의 예상이 제공되나요?"
+  },
+  "全国24場すべてが対象です。ページ上部の場ボタンで会場ごとに絞り込めます。": {
+    "en": "All 24 venues are covered. Use the venue buttons at the top to filter the list.",
+    "zh-cn": "涵盖全国24个场馆，可使用页面上方的场馆按钮筛选。",
+    "zh-tw": "涵蓋全國24個場館，可使用頁面上方的場館按鈕篩選。",
+    "ko": "전국 24개 경기장을 모두 다룹니다. 페이지 상단의 경기장 버튼으로 필터링할 수 있습니다."
+  },
+  "予想はいつ更新されますか？": {
+    "en": "When are the predictions updated?",
+    "zh-cn": "预测何时更新？",
+    "zh-tw": "預測何時更新？",
+    "ko": "예상은 언제 업데이트되나요?"
+  },
+  "毎日更新しています。締切時刻や直前の展示タイムを反映した順位を配信します。生成時刻はメタ情報に表示されます。": {
+    "en": "Updated daily. Rankings reflect cutoff times and the latest pre-race trial times. The generation time appears in the page metadata.",
+    "zh-cn": "每日更新，排名会反映截止时间和最新赛前试航时间。生成时间显示在页面元数据中。",
+    "zh-tw": "每日更新，排名會反映截止時間及最新賽前試航時間。產生時間顯示於頁面中繼資料。",
+    "ko": "매일 업데이트합니다. 마감 시각과 최신 전시 타임을 반영한 순위를 제공하며 생성 시각은 페이지 메타 정보에 표시됩니다."
+  },
+  "競艇用語集（モーター2連率・展示タイム・STとは）": {
+    "en": "Boat-racing glossary: motor top-two rate, trial time and ST",
+    "zh-cn": "竞艇术语：马达前二率、赛前试航时间与ST",
+    "zh-tw": "競艇術語：馬達前二率、賽前試航時間與ST",
+    "ko": "경정 용어: 모터 2연대율, 전시 타임, ST"
+  },
+  "モーター2連率": {
+    "en": "Motor top-two rate",
+    "zh-cn": "马达前二率",
+    "zh-tw": "馬達前二率",
+    "ko": "모터 2연대율"
+  },
+  "使用モーターが2着以内に入った割合。機力の好不調を表す。": {
+    "en": "The share of races in which a motor finished in the top two; a measure of motor performance.",
+    "zh-cn": "所用马达进入前两名的比例，可反映动力表现。",
+    "zh-tw": "所用馬達進入前兩名的比例，可反映動力表現。",
+    "ko": "사용 모터가 2위 안에 든 비율로 모터 성능을 나타냅니다."
+  },
+  "1コースの艇が先頭で第1ターンを回り、そのまま1着になること。": {
+    "en": "When the boat in lane 1 leads around the first turn and goes on to win.",
+    "zh-cn": "1号艇在内道领先通过第一个转弯并保持至终点。",
+    "zh-tw": "1號艇在內側領先通過第一個彎道並一路取得第一名。",
+    "ko": "1코스 보트가 첫 번째 턴을 선두로 돌고 그대로 우승하는 것입니다."
+  },
+  "1〜3着を着順通りに当てる賭式。120通りで高配当が狙える。": {
+    "en": "A bet on the first three finishers in exact order. There are 120 combinations, with the chance of a larger payout.",
+    "zh-cn": "按顺序预测前三名的投注方式，共120种组合，有机会获得较高奖金。",
+    "zh-tw": "依序預測前三名的投注方式，共120種組合，有機會獲得較高獎金。",
+    "ko": "1~3위 선수를 순서대로 맞히는 베팅으로 조합은 120가지이며 고배당을 노릴 수 있습니다."
+  },
+  "ページ上部へ戻る": {
+    "en": "Back to top",
+    "zh-cn": "返回顶部",
+    "zh-tw": "回到頂端",
+    "ko": "맨 위로 이동"
+  },
+  "🔥 本日の注目レース（AI信頼度ランキング）": {
+    "en": "🔥 Featured races today (AI confidence ranking)",
+    "zh-cn": "🔥 今日重点赛事（AI信心排名）",
+    "zh-tw": "🔥 今日焦點賽事（AI信心排名）",
+    "ko": "🔥 오늘의 주요 경주 (AI 신뢰도 순위)"
+  },
+  "本日の注目レース（AI信頼度ランキング）": {
+    "en": "Featured races today (AI confidence ranking)",
+    "zh-cn": "今日重点赛事（AI信心排名）",
+    "zh-tw": "今日焦點賽事（AI信心排名）",
+    "ko": "오늘의 주요 경주 (AI 신뢰도 순위)"
+  },
+  "AI本命": {
+    "en": "AI pick",
+    "zh-cn": "AI看好",
+    "zh-tw": "AI看好",
+    "ko": "AI 추천"
+  },
+  "3連単推奨": {
+    "en": "Suggested trifecta",
+    "zh-cn": "三连单建议",
+    "zh-tw": "三連單建議",
+    "ko": "삼연승식 추천"
+  },
+  "あわせて読みたい": {
+    "en": "Read next",
+    "zh-cn": "延伸阅读",
+    "zh-tw": "延伸閱讀",
+    "ko": "함께 읽기"
+  },
+  "選手分析：1着率・コース別成績・直近の調子で選手を探す": {
+    "en": "Racer analysis: search by win rate, lane statistics and recent form",
+    "zh-cn": "选手分析：按胜率、赛道成绩和近期状态查找选手",
+    "zh-tw": "選手分析：依勝率、航道成績及近期狀態搜尋選手",
+    "ko": "선수 분석: 승률, 코스별 성적, 최근 컨디션으로 선수 검색"
+  },
+  "AI予想の見方・3連単の買い方の基本": {
+    "en": "How to read AI predictions and the basics of trifecta betting",
+    "zh-cn": "如何查看AI预测与三连单投注基础",
+    "zh-tw": "如何查看AI預測與三連單投注基礎",
+    "ko": "AI 예상 확인과 삼연승식 베팅 기초"
+  },
+  "当サイトの予想は、全国24場の出走表・選手成績・モーター成績・直前の展示タイム・気象データを 機械学習モデル（LightGBM LambdaRank）が分析し、各レース6艇の着順を相対評価したものです。 表の「予測」列が小さいほどAIが上位と見ている艇です。「勝率(AI)」はそのレースで1着になる確率の推定値です。": {
+    "en": "Our predictions use a machine-learning model (LightGBM LambdaRank) to analyze entries, racer records, motor performance, pre-race trial times and weather at all 24 venues. It ranks the six boats in each race relative to one another. A lower value in the Prediction column means the AI ranks that boat higher. AI Win Probability estimates the chance of finishing first.",
+    "zh-cn": "本网站使用机器学习模型（LightGBM LambdaRank）分析全国24个赛场的参赛名单、选手成绩、马达表现、赛前展示时间和天气数据，并对每场赛事的6艘艇进行相对排名。“预测”列数值越小，表示AI排名越靠前。“AI胜率”是该艇获得第一名的估计概率。",
+    "zh-tw": "本網站使用機器學習模型（LightGBM LambdaRank）分析全國24個賽場的參賽名單、選手成績、馬達表現、賽前展示時間及天氣資料，並對每場賽事的6艘艇進行相對排名。「預測」欄數值越小，表示AI排名越前。「AI勝率」是該艇取得第一名的估計機率。",
+    "ko": "이 사이트의 예상은 머신러닝 모델(LightGBM LambdaRank)이 전국 24개 경기장의 출전표, 선수 기록, 모터 성적, 직전 전시 타임, 기상 데이터를 분석해 경주별 6척의 순위를 상대 평가합니다. 예측 열의 값이 작을수록 AI가 더 높게 평가한 보트입니다. AI 승률은 해당 경주에서 1위를 할 추정 확률입니다."
+  },
+  "気になる選手は": {
+    "en": "Racers you're interested in",
+    "zh-cn": "感兴趣的选手",
+    "zh-tw": "感興趣的選手",
+    "ko": "관심 있는 선수"
+  },
+  "予測モデル:": {
+    "en": "Prediction model:",
+    "zh-cn": "预测模型：",
+    "zh-tw": "預測模型：",
+    "ko": "예측 모델:"
+  },
+  "関連リンク集・公式サイト": {
+    "en": "Related resources and official websites",
+    "zh-cn": "相关资源与官方网站",
+    "zh-tw": "相關資源與官方網站",
+    "ko": "관련 자료 및 공식 사이트"
+  },
+  "注目サイト": {
+    "en": "Featured resources",
+    "zh-cn": "推荐资源",
+    "zh-tw": "推薦資源",
+    "ko": "주요 자료"
+  },
+  "競艇・ボートレース リンク集": {
+    "en": "Boat-racing resources",
+    "zh-cn": "竞艇资源链接",
+    "zh-tw": "競艇資源連結",
+    "ko": "경정 관련 링크"
+  },
+  "競馬データベース": {
+    "en": "Horse Racing Database",
+    "zh-cn": "赛马数据库",
+    "zh-tw": "賽馬資料庫",
+    "ko": "경마 데이터베이스"
+  },
+  "競馬予想データ": {
+    "en": "Horse Racing Predictions",
+    "zh-cn": "赛马预测",
+    "zh-tw": "賽馬預測",
+    "ko": "경마 예상"
+  },
+  "競輪データベース": {
+    "en": "Cycling Race Database",
+    "zh-cn": "自行车赛数据库",
+    "zh-tw": "自行車賽資料庫",
+    "ko": "경륜 데이터베이스"
+  },
+  "競輪予想データ": {
+    "en": "Cycling Race Predictions",
+    "zh-cn": "自行车赛预测",
+    "zh-tw": "自行車賽預測",
+    "ko": "경륜 예상"
+  },
+  "競艇データベース": {
+    "en": "Boat Racing Database",
+    "zh-cn": "竞艇数据库",
+    "zh-tw": "競艇資料庫",
+    "ko": "경정 데이터베이스"
+  },
+  "あわせて確認": {
+    "en": "Explore related information",
+    "zh-cn": "继续查看相关信息",
+    "zh-tw": "繼續查看相關資訊",
+    "ko": "관련 정보 더 보기"
+  },
+  "選手成績・データ分析": {
+    "en": "Racer statistics and analysis",
+    "zh-cn": "选手成绩与数据分析",
+    "zh-tw": "選手成績與資料分析",
+    "ko": "선수 성적 및 데이터 분석"
+  },
+  "公式情報・関連リンク": {
+    "en": "Official resources and links",
+    "zh-cn": "官方信息与相关链接",
+    "zh-tw": "官方資訊與相關連結",
+    "ko": "공식 정보 및 관련 링크"
+  },
+  "公式情報": {
+    "en": "Official resources",
+    "zh-cn": "官方资源",
+    "zh-tw": "官方資源",
+    "ko": "공식 자료"
+  },
+  "開催情報・公式映像": {
+    "en": "Race information and official videos",
+    "zh-cn": "赛事信息与官方影像",
+    "zh-tw": "賽事資訊與官方影像",
+    "ko": "경주 정보 및 공식 영상"
+  },
+  "BOAT RACE公式サイト": {
+    "en": "Official BOAT RACE website",
+    "zh-cn": "BOAT RACE官方网站",
+    "zh-tw": "BOAT RACE官方網站",
+    "ko": "BOAT RACE 공식 웹사이트"
+  },
+  "BOAT RACE公式YouTube": {
+    "en": "Official BOAT RACE YouTube channel",
+    "zh-cn": "BOAT RACE官方YouTube频道",
+    "zh-tw": "BOAT RACE官方YouTube頻道",
+    "ko": "BOAT RACE 공식 YouTube 채널"
+  },
+  "注目レース": {
+    "en": "Featured races",
+    "zh-cn": "重点赛事",
+    "zh-tw": "焦點賽事",
+    "ko": "주요 경주"
+  },
+  "的中": {
+    "en": "Hits",
+    "zh-cn": "命中",
+    "zh-tw": "命中",
+    "ko": "적중"
+  },
+  "対象日:": {
+    "en": "Date:",
+    "zh-cn": "日期：",
+    "zh-tw": "日期：",
+    "ko": "날짜:"
+  },
+  "予測生成:": {
+    "en": "Generated:",
+    "zh-cn": "生成时间：",
+    "zh-tw": "產生時間：",
+    "ko": "생성:"
+  },
+  "データソース:": {
+    "en": "Data sources:",
+    "zh-cn": "数据来源：",
+    "zh-tw": "資料來源：",
+    "ko": "데이터 출처:"
+  },
+  "競艇予想AI": {
+    "en": "Boat Racing AI",
+    "zh-cn": "竞艇预测AI",
+    "zh-tw": "競艇預測AI",
+    "ko": "경정 예측 AI"
+  },
+  "ボートレース予想AI": {
+    "en": "Boat Racing AI Predictions",
+    "zh-cn": "竞艇AI预测",
+    "zh-tw": "競艇AI預測",
+    "ko": "보트 레이스 AI 예상"
+  },
+  "競艇予想AIの予想はどのように作られていますか？": {
+    "en": "How are the Boat Racing AI predictions made?",
+    "zh-cn": "竞艇AI预测是如何生成的？",
+    "zh-tw": "競艇AI預測是如何產生的？",
+    "ko": "경정 AI 예상은 어떻게 만들어지나요?"
+  },
+  "全国24競艇場の出走表・選手成績・モーター成績・直前展示タイム・気象データを特徴量化し、LightGBMのランキング学習(LambdaRank)モデルで各レース6艇の着順を予測しています。": {
+    "en": "Entry lists, racer and motor records, pre-race trial times and weather data from all 24 venues are used as features in a LightGBM LambdaRank model to rank the six boats in each race.",
+    "zh-cn": "将全国24个赛场的参赛名单、选手和马达成绩、赛前展示时间及天气数据作为特征，使用LightGBM LambdaRank模型预测每场赛事6艘艇的排名。",
+    "zh-tw": "將全國24個賽場的參賽名單、選手與馬達成績、賽前展示時間及天氣資料作為特徵，使用LightGBM LambdaRank模型預測每場賽事6艘艇的排名。",
+    "ko": "전국 24개 경기장의 출전표, 선수 및 모터 기록, 직전 전시 타임, 기상 데이터를 특성으로 사용해 LightGBM LambdaRank 모델이 경주별 6척의 순위를 예측합니다."
+  },
+  "予想は無料で見られますか？": {
+    "en": "Can I view the predictions for free?",
+    "zh-cn": "可以免费查看预测吗？",
+    "zh-tw": "可以免費查看預測嗎？",
+    "ko": "예상을 무료로 볼 수 있나요?"
+  },
+  "はい。本日の全レースの予測順位・AI勝率・3連単推奨買い目をすべて無料で閲覧できます。": {
+    "en": "Yes. Today's rankings, AI win probabilities and suggested trifecta bets are all free to view.",
+    "zh-cn": "可以。今日所有赛事的排名、AI胜率和三连单建议均可免费查看。",
+    "zh-tw": "可以。今日所有賽事的排名、AI勝率及三連單建議均可免費查看。",
+    "ko": "네. 오늘의 모든 경주 순위, AI 승률, 삼연승식 추천을 무료로 볼 수 있습니다."
+  },
+  "直近の検証期間(Out-of-Sample)での単勝・2連単・3連単の的中率と回収率をサイト上部に掲載しています。数値は日々更新されます。": {
+    "en": "The top of the site shows hit and return rates for win, exacta and trifecta bets on recent out-of-sample data. These figures are updated daily.",
+    "zh-cn": "网站上方列出近期样本外数据的单胜、二连单和三连单命中率及回报率，数据每日更新。",
+    "zh-tw": "網站上方列出近期樣本外資料的單勝、二連單及三連單命中率與回報率，數據每日更新。",
+    "ko": "사이트 상단에 최근 표본 외 데이터의 단승·연승식·삼연승식 적중률과 환수율을 표시하며 수치는 매일 업데이트됩니다."
+  },
+  "⚠️ 本サイトの予想は機械学習モデルによる参考情報です。的中を保証するものではありません。 舟券の購入は自己責任で、20歳未満の方は購入できません。": {
+    "en": "⚠️ Predictions from this machine-learning model are for reference only and do not guarantee wins. Bet responsibly. Betting is restricted to adults aged 20 and over in Japan.",
+    "zh-cn": "⚠️ 本网站的预测由机器学习模型生成，仅供参考，不保证命中。投注须自行承担责任，日本未满20岁者不得购买舟券。",
+    "zh-tw": "⚠️ 本網站的預測由機器學習模型產生，僅供參考，不保證命中。投注須自行負責，日本未滿20歲者不得購買舟券。",
+    "ko": "⚠️ 이 예측은 머신러닝 모델의 참고 정보이며 적중을 보장하지 않습니다. 베팅은 본인의 책임이며 일본에서는 만 20세 미만의 구매가 금지됩니다."
+  }
+}
