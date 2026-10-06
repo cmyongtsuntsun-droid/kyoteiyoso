@@ -2,131 +2,131 @@
  "races": 1380,
  "bet_unit": 100,
  "valid_date_range": [
-  "2026-09-27",
-  "2026-10-05"
+  "2026-09-28",
+  "2026-10-06"
  ],
  "win": {
   "hit_rate": 0.571,
-  "roi": 0.9353
+  "roi": 0.9441
  },
  "exacta": {
-  "hit_rate": 0.229,
-  "roi": 0.7551
+  "hit_rate": 0.2304,
+  "roi": 0.7811
  },
  "trifecta": {
-  "hit_rate": 0.1043,
-  "roi": 0.8572
+  "hit_rate": 0.1051,
+  "roi": 0.8477
  },
  "by_stadium_trifecta": [
   {
-   "stadium": "大村",
-   "races": 60,
-   "roi": 1.4233
-  },
-  {
-   "stadium": "若松",
-   "races": 24,
-   "roi": 1.375
-  },
-  {
-   "stadium": "丸亀",
-   "races": 72,
-   "roi": 1.3542
-  },
-  {
    "stadium": "福岡",
    "races": 72,
-   "roi": 1.2278
+   "roi": 1.6
   },
   {
-   "stadium": "多摩川",
+   "stadium": "大村",
    "races": 72,
-   "roi": 1.1056
-  },
-  {
-   "stadium": "下関",
-   "races": 96,
-   "roi": 1.0927
-  },
-  {
-   "stadium": "住之江",
-   "races": 60,
-   "roi": 1.0267
-  },
-  {
-   "stadium": "唐津",
-   "races": 72,
-   "roi": 0.9986
-  },
-  {
-   "stadium": "津",
-   "races": 96,
-   "roi": 0.9969
-  },
-  {
-   "stadium": "児島",
-   "races": 72,
-   "roi": 0.8833
-  },
-  {
-   "stadium": "平和島",
-   "races": 72,
-   "roi": 0.8569
-  },
-  {
-   "stadium": "江戸川",
-   "races": 60,
-   "roi": 0.7567
-  },
-  {
-   "stadium": "びわこ",
-   "races": 48,
-   "roi": 0.7375
-  },
-  {
-   "stadium": "蒲郡",
-   "races": 72,
-   "roi": 0.6792
-  },
-  {
-   "stadium": "尼崎",
-   "races": 96,
-   "roi": 0.6677
-  },
-  {
-   "stadium": "鳴門",
-   "races": 72,
-   "roi": 0.6542
-  },
-  {
-   "stadium": "三国",
-   "races": 24,
-   "roi": 0.4833
-  },
-  {
-   "stadium": "徳山",
-   "races": 48,
-   "roi": 0.4688
+   "roi": 1.5542
   },
   {
    "stadium": "戸田",
    "races": 84,
-   "roi": 0.4548
+   "roi": 1.2976
   },
   {
-   "stadium": "浜名湖",
+   "stadium": "鳴門",
+   "races": 72,
+   "roi": 1.1347
+  },
+  {
+   "stadium": "住之江",
+   "races": 72,
+   "roi": 1.0903
+  },
+  {
+   "stadium": "多摩川",
+   "races": 72,
+   "roi": 1.0486
+  },
+  {
+   "stadium": "びわこ",
+   "races": 48,
+   "roi": 0.9729
+  },
+  {
+   "stadium": "下関",
+   "races": 96,
+   "roi": 0.9646
+  },
+  {
+   "stadium": "丸亀",
    "races": 60,
-   "roi": 0.44
+   "roi": 0.9283
+  },
+  {
+   "stadium": "唐津",
+   "races": 72,
+   "roi": 0.7972
+  },
+  {
+   "stadium": "江戸川",
+   "races": 48,
+   "roi": 0.7937
+  },
+  {
+   "stadium": "児島",
+   "races": 72,
+   "roi": 0.7069
+  },
+  {
+   "stadium": "尼崎",
+   "races": 96,
+   "roi": 0.7063
+  },
+  {
+   "stadium": "津",
+   "races": 84,
+   "roi": 0.6512
   },
   {
    "stadium": "常滑",
    "races": 12,
-   "roi": 0.0
+   "roi": 0.5833
+  },
+  {
+   "stadium": "蒲郡",
+   "races": 72,
+   "roi": 0.4806
+  },
+  {
+   "stadium": "若松",
+   "races": 24,
+   "roi": 0.4792
+  },
+  {
+   "stadium": "徳山",
+   "races": 60,
+   "roi": 0.4567
+  },
+  {
+   "stadium": "浜名湖",
+   "races": 60,
+   "roi": 0.4183
   },
   {
    "stadium": "芦屋",
+   "races": 24,
+   "roi": 0.275
+  },
+  {
+   "stadium": "平和島",
+   "races": 72,
+   "roi": 0.2056
+  },
+  {
+   "stadium": "三国",
    "races": 36,
-   "roi": 0.0
+   "roi": 0.1972
   }
  ]
 }
